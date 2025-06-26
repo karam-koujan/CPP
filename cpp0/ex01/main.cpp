@@ -5,58 +5,75 @@
 
 
 
+#include "Contact.hpp"
+
+Contact::Contact()
+{
+    firstname = "";
+    lastname = "";
+    nickname = "";
+    phone_number = "";
+    darkest_secret = "";
+}
+
+PhoneBook::PhoneBook()
+{
+    contact_num = 0;
+}
 
 bool    is_valid_cmd(std::string cmd)
 {
-    if (cmd == "ADD" || cmd == "SEARCH" || CMD == "EXIT")
+    if (cmd == "ADD" || cmd == "SEARCH" || cmd == "EXIT")
         return true;
     return false;
 }
 
-void    handle_add(PhoneBook& phonebook, int contact_num)
+void    handle_add(PhoneBook phonebook)
 {
     Contact contact;
-    std::cout << "first name : " << std::endl;
-    std::cin >> contact.firstname;
     while (contact.firstname.length() == 0)
     {
-        std::cout << "empty field are not allowed";
-        std::cout << "first name : " << std::endl;
+        std::cout << "first name : ";
         std::cin >> contact.firstname;
+        std::cout << std::endl;
+        if (contact.firstname.length() == 0)
+            std::cout << "empty field are not allowed" << std::endl;
     }
-    std::cout << "last name : " << std::endl;
-    std::cin >> contact.lastname;
     while (contact.lastname.length() == 0)
     {
-        std::cout << "empty field are not allowed";
-        std::cout << "last name : " << std::endl;
+        std::cout << "last name : ";
         std::cin >> contact.lastname;
+        std::cout << std::endl;
+        if (contact.lastname.length() == 0)
+            std::cout << "empty field are not allowed"  << std::endl;;
     }
-    std::cout << "nickname : " << std::endl;
-    std::cin >> contact.nickname;
     while (contact.nickname.length() == 0)
     {
-        std::cout << "empty field are not allowed";
-        std::cout << "nick name : " << std::endl;
+        std::cout << "nick name : ";
         std::cin >> contact.nickname;
+        std::cout << std::endl;
+        if (contact.nickname.length() == 0)
+            std::cout << "empty field are not allowed" << std::endl;;
     }
-    std::cout << "phone number : " << std::endl;
-    std::cin >> contact.phone_number;
     while (contact.phone_number.length() == 0)
     {
-        std::cout << "empty field are not allowed";
-        std::cout << "phone number : " << std::endl;
+        std::cout << "phone number : ";
         std::cin >> contact.phone_number;
+        std::cout << std::endl;
+        if (contact.phone_number.length() == 0)
+            std::cout << "empty field are not allowed"  << std::endl;;
     }
-    std::cout << "darkest secret : " << std::endl;
-    std::cin >> contact.darkest_secret;
     while (contact.darkest_secret.length() == 0)
     {
-        std::cout << "empty field are not allowed";
-        std::cout << "darkest secret : " << std::endl;
+        std::cout << "darkest secret : ";
         std::cin >> contact.darkest_secret;
+        std::cout << std::endl;
+        if (contact.darkest_secret.length() == 0)
+            std::cout << "empty field are not allowed" << std::endl;;
     }
-    phonebook.add()
+    phonebook.contacts[phonebook.contact_num % 8] = contact;
+    phonebook.contact_num++;
+    std::cout << "A Contact added to phone number successfully!!" << std::endl;
 }
 
 int main()
@@ -64,19 +81,17 @@ int main()
     // prompt the user to enter one of three commands, ADD, SEARCH, EXIT
     //bool exit = true;
     PhoneBook phonebook;
-    phonebook.contact_num = 0;
     std::string cmd;
     std::cout << "Please Enter three commands: ADD, SEARCH, EXIT" << std::endl;
     std::cout << "Command : ";
     std::cin >> cmd;
-    std::cout << cmd << std::endl;
     if (!is_valid_cmd(cmd))
         std::cout << "wrong command!!";
     else
     {
         if (cmd == "ADD")
         {
-            handle_add(phonebook, contact_num);
+            handle_add(phonebook);
         }
     }
 
