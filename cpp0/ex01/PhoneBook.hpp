@@ -9,6 +9,7 @@ class PhoneBook
         PhoneBook();
         void    add();
         void    search();
+        int     contact_num;
 };
 
 #endif
