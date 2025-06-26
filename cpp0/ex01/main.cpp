@@ -35,7 +35,6 @@ void    handle_add(PhoneBook phonebook)
     {
         std::cout << "first name : ";
         std::cin >> contact.firstname;
-        std::cout << std::endl;
         if (contact.firstname.length() == 0)
             std::cout << "empty field are not allowed" << std::endl;
     }
@@ -43,7 +42,6 @@ void    handle_add(PhoneBook phonebook)
     {
         std::cout << "last name : ";
         std::cin >> contact.lastname;
-        std::cout << std::endl;
         if (contact.lastname.length() == 0)
             std::cout << "empty field are not allowed"  << std::endl;;
     }
@@ -51,7 +49,6 @@ void    handle_add(PhoneBook phonebook)
     {
         std::cout << "nick name : ";
         std::cin >> contact.nickname;
-        std::cout << std::endl;
         if (contact.nickname.length() == 0)
             std::cout << "empty field are not allowed" << std::endl;;
     }
@@ -59,7 +56,6 @@ void    handle_add(PhoneBook phonebook)
     {
         std::cout << "phone number : ";
         std::cin >> contact.phone_number;
-        std::cout << std::endl;
         if (contact.phone_number.length() == 0)
             std::cout << "empty field are not allowed"  << std::endl;;
     }
@@ -67,7 +63,6 @@ void    handle_add(PhoneBook phonebook)
     {
         std::cout << "darkest secret : ";
         std::cin >> contact.darkest_secret;
-        std::cout << std::endl;
         if (contact.darkest_secret.length() == 0)
             std::cout << "empty field are not allowed" << std::endl;;
     }
