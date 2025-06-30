@@ -78,16 +78,11 @@ void	print_cols(std::string field)
 	if (i < 0)
 		std::cout << field.substr(0, 9) + ".";
 	else
-		std::cout << std::string(i, '*') << field;
+		std::cout << std::string(i, ' ') << field;
 }
 
 void handle_search(PhoneBook& phonebook)
 {
-/*
-index, first name, last
-name and nickname.
-◦ Each column must be 10 characters wide. A pipe character (’|’) separates
-*/
 	int	i = 0;
 	int	idx = 0;
 	while (i < phonebook.contact_num)
@@ -108,11 +103,13 @@ name and nickname.
 		std::cout << "Index out of range" << std::endl;
 	else
 	{
-		print_cols(std::to_string(idx + 1));
-		print_cols(phonebook.contacts[idx].firstname);
-		print_cols(phonebook.contacts[idx].lastname);
-		print_cols(phonebook.contacts[idx].nickname);
-		std::cout << std::endl;		
+		std::cout << "index: " << std::to_string(idx + 1) << std::endl;
+		std::cout << "first name: " << phonebook.contacts[idx - 1].firstname << std::endl;
+		std::cout << "last name: " << phonebook.contacts[idx - 1].lastname << std::endl;
+		std::cout << "nickname: " << phonebook.contacts[idx - 1].nickname << std::endl;
+		std::cout << "phone number: " << phonebook.contacts[idx - 1].phone_number << std::endl;	
+		std::cout << "darkest secret: " << phonebook.contacts[idx - 1].darkest_secret << std::endl;	
+
 	}
 }
 
