@@ -137,6 +137,8 @@ int main()
 			{
 				handle_search(phonebook);
 			}
+			else if (cmd == "EXIT")
+				exit(0);
 		}
 	}
 
