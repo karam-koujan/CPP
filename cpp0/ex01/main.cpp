@@ -34,35 +34,35 @@ void    handle_add(PhoneBook& phonebook)
     while (contact.firstname.length() == 0)
     {
         std::cout << "first name : ";
-        std::cin >> contact.firstname;
+		std::getline(std::cin, contact.firstname);
         if (contact.firstname.length() == 0)
             std::cout << "empty field are not allowed" << std::endl;
     }
     while (contact.lastname.length() == 0)
     {
         std::cout << "last name : ";
-        std::cin >> contact.lastname;
+		std::getline(std::cin, contact.lastname);
         if (contact.lastname.length() == 0)
             std::cout << "empty field are not allowed"  << std::endl;;
     }
     while (contact.nickname.length() == 0)
     {
         std::cout << "nick name : ";
-        std::cin >> contact.nickname;
+		std::getline(std::cin, contact.nickname);
         if (contact.nickname.length() == 0)
             std::cout << "empty field are not allowed" << std::endl;;
     }
     while (contact.phone_number.length() == 0)
     {
         std::cout << "phone number : ";
-        std::cin >> contact.phone_number;
+		std::getline(std::cin, contact.phone_number);
         if (contact.phone_number.length() == 0)
             std::cout << "empty field are not allowed"  << std::endl;;
     }
     while (contact.darkest_secret.length() == 0)
     {
         std::cout << "darkest secret : ";
-        std::cin >> contact.darkest_secret;
+		std::getline(std::cin, contact.darkest_secret);
         if (contact.darkest_secret.length() == 0)
             std::cout << "empty field are not allowed" << std::endl;;
     }
@@ -81,10 +81,23 @@ void	print_cols(std::string field)
 		std::cout << std::string(i, ' ') << field;
 }
 
+int is_number(std::string str)
+{
+	int i = 0;
+	while (i < str.length())
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 void handle_search(PhoneBook& phonebook)
 {
 	int	i = 0;
 	int	idx = 0;
+	std::string idx_str = "";
 	while (i < phonebook.contact_num)
 	{
 		print_cols(std::to_string(i + 1));
@@ -98,8 +111,16 @@ void handle_search(PhoneBook& phonebook)
 		i++;
 	}
 	std::cout << "Enter contact index: ";
-	std::cin >> idx;
-	if (idx <= 0 || idx > phonebook.contact_num)
+	std::getline(std::cin, idx_str);
+	try {
+    idx = std::stoi(idx_str);
+	} catch (const std::invalid_argument&) {
+		std::cout << "invalid number" << std::endl;
+		return ;
+	}
+	if (!is_number(idx_str))
+		std::cout << "invalid number" << std::endl;
+	else if (idx <= 0 || idx > phonebook.contact_num)
 		std::cout << "Index out of range" << std::endl;
 	else
 	{
@@ -115,8 +136,6 @@ void handle_search(PhoneBook& phonebook)
 
 int main()
 {
-    // prompt the user to enter one of three commands, ADD, SEARCH, EXIT
-    //bool exit = true;
     PhoneBook phonebook;
 	while (true)
 	{
@@ -124,7 +143,7 @@ int main()
 		std::string cmd;
 		std::cout << "Please Enter three commands: ADD, SEARCH, EXIT" << std::endl;
 		std::cout << "Command : ";
-		std::cin >> cmd;
+		std::getline(std::cin, cmd);
 		if (!is_valid_cmd(cmd))
 			std::cout << "wrong command!!";
 		else
