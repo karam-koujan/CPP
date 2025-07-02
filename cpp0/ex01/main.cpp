@@ -35,6 +35,8 @@ void    handle_add(PhoneBook& phonebook)
     {
         std::cout << "first name : ";
 		std::getline(std::cin, contact.firstname);
+		if (std::cin.eof())
+			return ;
         if (contact.firstname.length() == 0)
             std::cout << "empty field are not allowed" << std::endl;
     }
@@ -42,6 +44,8 @@ void    handle_add(PhoneBook& phonebook)
     {
         std::cout << "last name : ";
 		std::getline(std::cin, contact.lastname);
+		if (std::cin.eof())
+			return ;
         if (contact.lastname.length() == 0)
             std::cout << "empty field are not allowed"  << std::endl;;
     }
@@ -49,6 +53,8 @@ void    handle_add(PhoneBook& phonebook)
     {
         std::cout << "nick name : ";
 		std::getline(std::cin, contact.nickname);
+		if (std::cin.eof())
+			return ;
         if (contact.nickname.length() == 0)
             std::cout << "empty field are not allowed" << std::endl;;
     }
@@ -56,6 +62,8 @@ void    handle_add(PhoneBook& phonebook)
     {
         std::cout << "phone number : ";
 		std::getline(std::cin, contact.phone_number);
+		if (std::cin.eof())
+			return ;
         if (contact.phone_number.length() == 0)
             std::cout << "empty field are not allowed"  << std::endl;;
     }
@@ -63,6 +71,8 @@ void    handle_add(PhoneBook& phonebook)
     {
         std::cout << "darkest secret : ";
 		std::getline(std::cin, contact.darkest_secret);
+		if (std::cin.eof())
+			return ;
         if (contact.darkest_secret.length() == 0)
             std::cout << "empty field are not allowed" << std::endl;;
     }
@@ -112,6 +122,8 @@ void handle_search(PhoneBook& phonebook)
 	}
 	std::cout << "Enter contact index: ";
 	std::getline(std::cin, idx_str);
+	if (std::cin.eof())
+			return ;
 	try {
     idx = std::stoi(idx_str);
 	} catch (const std::invalid_argument&) {
@@ -144,6 +156,8 @@ int main()
 		std::cout << "Please Enter three commands: ADD, SEARCH, EXIT" << std::endl;
 		std::cout << "Command : ";
 		std::getline(std::cin, cmd);
+		if (std::cin.eof())
+			return (1);
 		if (!is_valid_cmd(cmd))
 			std::cout << "wrong command!!";
 		else
