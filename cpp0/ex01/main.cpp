@@ -28,54 +28,59 @@ bool    is_valid_cmd(std::string cmd)
     return false;
 }
 
+void Contact::create_contact()
+{
+	while (firstname.length() == 0)
+    {
+        std::cout << "first name : ";
+		std::getline(std::cin, firstname);
+		if (std::cin.eof())
+			return ;
+        if (firstname.length() == 0)
+            std::cout << "empty field are not allowed" << std::endl;
+    }
+    while (lastname.length() == 0)
+    {
+        std::cout << "last name : ";
+		std::getline(std::cin, lastname);
+		if (std::cin.eof())
+			return ;
+        if (lastname.length() == 0)
+            std::cout << "empty field are not allowed"  << std::endl;;
+    }
+    while (nickname.length() == 0)
+    {
+        std::cout << "nick name : ";
+		std::getline(std::cin, nickname);
+		if (std::cin.eof())
+			return ;
+        if (nickname.length() == 0)
+            std::cout << "empty field are not allowed" << std::endl;;
+    }
+    while (phone_number.length() == 0)
+    {
+        std::cout << "phone number : ";
+		std::getline(std::cin, phone_number);
+		if (std::cin.eof())
+			return ;
+        if (phone_number.length() == 0)
+            std::cout << "empty field are not allowed"  << std::endl;;
+    }
+    while (darkest_secret.length() == 0)
+    {
+        std::cout << "darkest secret : ";
+		std::getline(std::cin, darkest_secret);
+		if (std::cin.eof())
+			return ;
+        if (darkest_secret.length() == 0)
+            std::cout << "empty field are not allowed" << std::endl;;
+    }
+}
+
 void    handle_add(PhoneBook& phonebook)
 {
     Contact contact;
-    while (contact.firstname.length() == 0)
-    {
-        std::cout << "first name : ";
-		std::getline(std::cin, contact.firstname);
-		if (std::cin.eof())
-			return ;
-        if (contact.firstname.length() == 0)
-            std::cout << "empty field are not allowed" << std::endl;
-    }
-    while (contact.lastname.length() == 0)
-    {
-        std::cout << "last name : ";
-		std::getline(std::cin, contact.lastname);
-		if (std::cin.eof())
-			return ;
-        if (contact.lastname.length() == 0)
-            std::cout << "empty field are not allowed"  << std::endl;;
-    }
-    while (contact.nickname.length() == 0)
-    {
-        std::cout << "nick name : ";
-		std::getline(std::cin, contact.nickname);
-		if (std::cin.eof())
-			return ;
-        if (contact.nickname.length() == 0)
-            std::cout << "empty field are not allowed" << std::endl;;
-    }
-    while (contact.phone_number.length() == 0)
-    {
-        std::cout << "phone number : ";
-		std::getline(std::cin, contact.phone_number);
-		if (std::cin.eof())
-			return ;
-        if (contact.phone_number.length() == 0)
-            std::cout << "empty field are not allowed"  << std::endl;;
-    }
-    while (contact.darkest_secret.length() == 0)
-    {
-        std::cout << "darkest secret : ";
-		std::getline(std::cin, contact.darkest_secret);
-		if (std::cin.eof())
-			return ;
-        if (contact.darkest_secret.length() == 0)
-            std::cout << "empty field are not allowed" << std::endl;;
-    }
+	contact.create_contact();
     phonebook.contacts[phonebook.contact_num % 8] = contact;
     phonebook.contact_num++;
     std::cout << "A Contact added to phone number successfully!!" << std::endl;
@@ -103,6 +108,31 @@ int is_number(std::string str)
 	return (1);
 }
 
+std::string Contact::getFirstName()
+{
+	return firstname;
+}
+
+std::string Contact::getLastName()
+{
+	return lastname;
+}
+
+std::string Contact::getNickName()
+{
+	return nickname;
+}
+
+std::string Contact::getPhoneNumber()
+{
+	return phone_number;
+}
+
+std::string Contact::getDarkestSecret()
+{
+	return darkest_secret;
+}
+
 void handle_search(PhoneBook& phonebook)
 {
 	int	i = 0;
@@ -112,11 +142,11 @@ void handle_search(PhoneBook& phonebook)
 	{
 		print_cols(std::to_string(i + 1));
 		std::cout << "|";
-		print_cols(phonebook.contacts[i].firstname);
+		print_cols(phonebook.contacts[i].getFirstName());
 		std::cout << "|";
-		print_cols(phonebook.contacts[i].lastname);
+		print_cols(phonebook.contacts[i].getLastName());
 		std::cout << "|";
-		print_cols(phonebook.contacts[i].nickname);
+		print_cols(phonebook.contacts[i].getNickName());
 		std::cout << std::endl;
 		i++;
 	}
@@ -137,11 +167,11 @@ void handle_search(PhoneBook& phonebook)
 	else
 	{
 		std::cout << "index: " << std::to_string(idx + 1) << std::endl;
-		std::cout << "first name: " << phonebook.contacts[idx - 1].firstname << std::endl;
-		std::cout << "last name: " << phonebook.contacts[idx - 1].lastname << std::endl;
-		std::cout << "nickname: " << phonebook.contacts[idx - 1].nickname << std::endl;
-		std::cout << "phone number: " << phonebook.contacts[idx - 1].phone_number << std::endl;	
-		std::cout << "darkest secret: " << phonebook.contacts[idx - 1].darkest_secret << std::endl;	
+		std::cout << "first name: " << phonebook.contacts[idx - 1].getFirstName() << std::endl;
+		std::cout << "last name: " << phonebook.contacts[idx - 1].getLastName() << std::endl;
+		std::cout << "nickname: " << phonebook.contacts[idx - 1].getNickName() << std::endl;
+		std::cout << "phone number: " << phonebook.contacts[idx - 1].getPhoneNumber() << std::endl;	
+		std::cout << "darkest secret: " << phonebook.contacts[idx - 1].getDarkestSecret() << std::endl;	
 
 	}
 }
