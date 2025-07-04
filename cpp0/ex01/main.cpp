@@ -77,13 +77,18 @@ void Contact::create_contact()
     }
 }
 
+void PhoneBook::add_contact(Contact& contact)
+{
+	contacts[contact_num % 8] = contact;
+    contact_num++;
+    std::cout << "A Contact added to phone number successfully!!" << std::endl;
+}
+
 void    handle_add(PhoneBook& phonebook)
 {
     Contact contact;
 	contact.create_contact();
-    phonebook.contacts[phonebook.contact_num % 8] = contact;
-    phonebook.contact_num++;
-    std::cout << "A Contact added to phone number successfully!!" << std::endl;
+	phonebook.add_contact(contact);
 }
 
 void	print_cols(std::string field)
@@ -133,20 +138,21 @@ std::string Contact::getDarkestSecret()
 	return darkest_secret;
 }
 
-void handle_search(PhoneBook& phonebook)
+
+void PhoneBook::handle_search()
 {
 	int	i = 0;
 	int	idx = 0;
 	std::string idx_str = "";
-	while (i < phonebook.contact_num)
+	while (i < contact_num)
 	{
 		print_cols(std::to_string(i + 1));
 		std::cout << "|";
-		print_cols(phonebook.contacts[i].getFirstName());
+		print_cols(contacts[i].getFirstName());
 		std::cout << "|";
-		print_cols(phonebook.contacts[i].getLastName());
+		print_cols(contacts[i].getLastName());
 		std::cout << "|";
-		print_cols(phonebook.contacts[i].getNickName());
+		print_cols(contacts[i].getNickName());
 		std::cout << std::endl;
 		i++;
 	}
@@ -162,16 +168,16 @@ void handle_search(PhoneBook& phonebook)
 	}
 	if (!is_number(idx_str))
 		std::cout << "invalid number" << std::endl;
-	else if (idx <= 0 || idx > phonebook.contact_num)
+	else if (idx <= 0 || idx > contact_num)
 		std::cout << "Index out of range" << std::endl;
 	else
 	{
 		std::cout << "index: " << std::to_string(idx + 1) << std::endl;
-		std::cout << "first name: " << phonebook.contacts[idx - 1].getFirstName() << std::endl;
-		std::cout << "last name: " << phonebook.contacts[idx - 1].getLastName() << std::endl;
-		std::cout << "nickname: " << phonebook.contacts[idx - 1].getNickName() << std::endl;
-		std::cout << "phone number: " << phonebook.contacts[idx - 1].getPhoneNumber() << std::endl;	
-		std::cout << "darkest secret: " << phonebook.contacts[idx - 1].getDarkestSecret() << std::endl;	
+		std::cout << "first name: " << contacts[idx - 1].getFirstName() << std::endl;
+		std::cout << "last name: " << contacts[idx - 1].getLastName() << std::endl;
+		std::cout << "nickname: " << contacts[idx - 1].getNickName() << std::endl;
+		std::cout << "phone number: " << contacts[idx - 1].getPhoneNumber() << std::endl;	
+		std::cout << "darkest secret: " << contacts[idx - 1].getDarkestSecret() << std::endl;	
 
 	}
 }
@@ -198,7 +204,7 @@ int main()
 			}
 			else if (cmd == "SEARCH") 
 			{
-				handle_search(phonebook);
+				phonebook.handle_search();
 			}
 			else if (cmd == "EXIT")
 				exit(0);
