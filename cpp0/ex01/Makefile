@@ -1,6 +1,6 @@
 NAME = phonebook
 CC = g++
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror --std=c++98
 OBJ = main.o
 
 all: $(NAME)
