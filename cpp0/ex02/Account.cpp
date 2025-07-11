@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 10:04:51 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/07/11 11:50:01 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/07/11 12:06:59 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ bool Account::makeWithdrawal(int withdrawal)
     else
     {
         _totalNbWithdrawals++;
-        _nbWithdrawals+= withdrawal;
+        _nbWithdrawals++;
         _totalAmount-= withdrawal;
         _amount-= withdrawal;
         _displayTimestamp();
@@ -107,17 +107,16 @@ Account::Account(int initial_deposit)
 {
     _nbAccounts++;
     _totalAmount+= initial_deposit;
-    _totalNbDeposits++;
     _accountIndex = _nbAccounts - 1;
     _amount = initial_deposit;
-    _nbDeposits = 1;
+    _nbDeposits = 0;
     _nbWithdrawals = 0;
     _displayTimestamp();
-    std::cout << " index :" << _accountIndex << ";amount:"<< _amount << ";created" << std::endl; 
+    std::cout << " index:" << _accountIndex << ";amount:"<< _amount << ";created" << std::endl; 
 }
 
 Account::~Account(void)
 {
     _displayTimestamp();
-    std::cout << " index :" << _accountIndex << ";amount:"<< _amount << ";closed" << std::endl;
+    std::cout << " index:" << _accountIndex << ";amount:"<< _amount << ";closed" << std::endl;
 }
