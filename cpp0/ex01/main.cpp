@@ -77,18 +77,15 @@ void Contact::create_contact()
     }
 }
 
-void PhoneBook::add_contact(Contact& contact)
-{
-	contacts[contact_num % 8] = contact;
-    contact_num++;
-    std::cout << "A Contact added to phone number successfully!!" << std::endl;
-}
-
-void    handle_add(PhoneBook& phonebook)
+void PhoneBook::add_contact()
 {
     Contact contact;
+	int idx;
 	contact.create_contact();
-	phonebook.add_contact(contact);
+	idx = contact_num % 8;
+	contacts[idx] = contact;
+    contact_num++;
+    std::cout << "A Contact added to phone number successfully!!" << std::endl;
 }
 
 void	print_cols(std::string field)
@@ -144,7 +141,10 @@ void PhoneBook::handle_search()
 	int	i = 0;
 	int	idx = 0;
 	std::string idx_str = "";
-	while (i < contact_num)
+	int table_length = contact_num;
+	if (table_length > 8)
+		table_length = 8;
+	while (i < table_length)
 	{
 		print_cols(std::to_string(i + 1));
 		std::cout << "|";
@@ -160,19 +160,14 @@ void PhoneBook::handle_search()
 	std::getline(std::cin, idx_str);
 	if (std::cin.eof())
 			return ;
-	try {
-    idx = std::stoi(idx_str);
-	} catch (const std::invalid_argument&) {
-		std::cout << "invalid number" << std::endl;
-		return ;
-	}
+    idx = idx_str[0] - '0';
 	if (!is_number(idx_str))
 		std::cout << "invalid number" << std::endl;
 	else if (idx <= 0 || idx > contact_num)
 		std::cout << "Index out of range" << std::endl;
 	else
 	{
-		std::cout << "index: " << std::to_string(idx + 1) << std::endl;
+		std::cout << "index: " << idx << std::endl;
 		std::cout << "first name: " << contacts[idx - 1].getFirstName() << std::endl;
 		std::cout << "last name: " << contacts[idx - 1].getLastName() << std::endl;
 		std::cout << "nickname: " << contacts[idx - 1].getNickName() << std::endl;
@@ -182,8 +177,13 @@ void PhoneBook::handle_search()
 	}
 }
 
-int main()
+int main(int ac, char **av)
 {
+    if (ac != 1)
+    {
+        std::cout << "The program has no argument" << std::endl;
+        return (1);
+    }
     PhoneBook phonebook;
 	while (true)
 	{
@@ -200,7 +200,7 @@ int main()
 		{
 			if (cmd == "ADD")
 			{
-				handle_add(phonebook);
+				phonebook.add_contact();
 			}
 			else if (cmd == "SEARCH") 
 			{
