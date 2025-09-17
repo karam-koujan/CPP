@@ -2,7 +2,7 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <string>
-
+#include <cstdlib>
 
 
 #include "Contact.hpp"
@@ -19,6 +19,18 @@ Contact::Contact()
 PhoneBook::PhoneBook()
 {
     contact_num = 0;
+}
+
+int is_number(std::string str)
+{
+	size_t i = 0;
+	while (i < str.length())
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 bool    is_valid_cmd(std::string cmd)
@@ -57,14 +69,16 @@ void Contact::create_contact()
         if (nickname.length() == 0)
             std::cout << "empty field are not allowed" << std::endl;;
     }
-    while (phone_number.length() == 0)
+    while (phone_number.length() == 0 || !is_number(phone_number))
     {
         std::cout << "phone number : ";
 		std::getline(std::cin, phone_number);
 		if (std::cin.eof())
 			return ;
         if (phone_number.length() == 0)
-            std::cout << "empty field are not allowed"  << std::endl;;
+            std::cout << "empty field are not allowed"  << std::endl;
+		if (!is_number(phone_number))
+			std::cout << "please enter a number!!"  << std::endl;
     }
     while (darkest_secret.length() == 0)
     {
@@ -77,18 +91,15 @@ void Contact::create_contact()
     }
 }
 
-void PhoneBook::add_contact(Contact& contact)
-{
-	contacts[contact_num % 8] = contact;
-    contact_num++;
-    std::cout << "A Contact added to phone number successfully!!" << std::endl;
-}
-
-void    handle_add(PhoneBook& phonebook)
+void PhoneBook::add_contact()
 {
     Contact contact;
+	int idx;
 	contact.create_contact();
-	phonebook.add_contact(contact);
+	idx = contact_num % 8;
+	contacts[idx] = contact;
+    contact_num++;
+    std::cout << "A Contact added to phone number successfully!!" << std::endl;
 }
 
 void	print_cols(std::string field)
@@ -99,18 +110,6 @@ void	print_cols(std::string field)
 		std::cout << field.substr(0, 9) + ".";
 	else
 		std::cout << std::string(i, ' ') << field;
-}
-
-int is_number(std::string str)
-{
-	int i = 0;
-	while (i < str.length())
-	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
-			return (0);
-		i++;
-	}
-	return (1);
 }
 
 std::string Contact::getFirstName()
@@ -144,9 +143,12 @@ void PhoneBook::handle_search()
 	int	i = 0;
 	int	idx = 0;
 	std::string idx_str = "";
-	while (i < contact_num)
+	int table_length = contact_num;
+	if (table_length > 8)
+		table_length = 8;
+	while (i < table_length)
 	{
-		print_cols(std::to_string(i + 1));
+		std::cout << std::string(9, ' ') << i + 1 << std::endl;
 		std::cout << "|";
 		print_cols(contacts[i].getFirstName());
 		std::cout << "|";
@@ -160,19 +162,14 @@ void PhoneBook::handle_search()
 	std::getline(std::cin, idx_str);
 	if (std::cin.eof())
 			return ;
-	try {
-    idx = std::stoi(idx_str);
-	} catch (const std::invalid_argument&) {
-		std::cout << "invalid number" << std::endl;
-		return ;
-	}
+    idx = idx_str[0] - '0';
 	if (!is_number(idx_str))
 		std::cout << "invalid number" << std::endl;
 	else if (idx <= 0 || idx > contact_num)
 		std::cout << "Index out of range" << std::endl;
 	else
 	{
-		std::cout << "index: " << std::to_string(idx + 1) << std::endl;
+		std::cout << "index: " << idx << std::endl;
 		std::cout << "first name: " << contacts[idx - 1].getFirstName() << std::endl;
 		std::cout << "last name: " << contacts[idx - 1].getLastName() << std::endl;
 		std::cout << "nickname: " << contacts[idx - 1].getNickName() << std::endl;
@@ -182,8 +179,14 @@ void PhoneBook::handle_search()
 	}
 }
 
-int main()
+int main(int ac, char **av)
 {
+	(void)av;
+    if (ac != 1)
+    {
+        std::cout << "The program has no argument" << std::endl;
+        return (1);
+    }
     PhoneBook phonebook;
 	while (true)
 	{
@@ -200,7 +203,7 @@ int main()
 		{
 			if (cmd == "ADD")
 			{
-				handle_add(phonebook);
+				phonebook.add_contact();
 			}
 			else if (cmd == "SEARCH") 
 			{
