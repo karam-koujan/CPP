@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 10:04:51 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/09/16 12:34:58 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/09/17 12:01:30 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,18 @@ int Account::getNbWithdrawals(void)
 
 void Account::_displayTimestamp(void)
 {
-    time_t t = std::time(nullptr);
+    time_t t = std::time(NULL);
     struct tm *ltm = std::localtime(&t);
-    std::cout << "[" <<std::put_time(ltm, "%Y%m%d_%H%M%S") << "]";
+
+    std::cout << "["
+              << (1900 + ltm->tm_year)
+              << std::setw(2) << std::setfill('0') << (ltm->tm_mon + 1)
+              << std::setw(2) << std::setfill('0') << ltm->tm_mday
+              << "_"
+              << std::setw(2) << std::setfill('0') << ltm->tm_hour
+              << std::setw(2) << std::setfill('0') << ltm->tm_min
+              << std::setw(2) << std::setfill('0') << ltm->tm_sec
+              << "]";
 }
 
 void Account::makeDeposit(int deposit)
