@@ -15,4 +15,4 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-r: fclean all
+re: fclean all
