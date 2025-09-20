@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 09:36:05 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/09/20 11:55:15 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/09/20 13:06:05 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class HumanB
         std::string name;
         Weapon *weapon;
     public:
-        HumanB(std::string n): name(n) {};
+        HumanB(std::string n): name(n) weapon(NULL) {};
         ~HumanB();
         void    setWeapon(Weapon &weapon);
         void    attack();
