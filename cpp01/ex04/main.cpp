@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 13:58:43 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/09/20 14:27:14 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/09/20 16:02:30 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,27 @@ int main(int ac, char **av)
     std::string s2 = av[3];
     std::string line;
     std::ifstream file(filepath);
-    if (file.fail())
+    std::ofstream outfile(filepath + ".replace");
+    if (!file.is_open() || !outfile.is_open())
     {
         std::cerr << "Something is wrong" << std::endl;
         return 1;
     }
+    size_t pos = 0;
     while (std::getline(file, line))
-        std::cout << line << std::endl;
+    {
+        pos = 0;
+        pos = line.find(s1, pos);
+        std::cout << line;
+        while (pos != std::string::npos)
+        {
+            line.erase(pos, s1.length());
+            line.insert(pos, s2);
+            outfile << line;
+            pos = line.find(s1, pos);
+        }
+    }
     file.close();
+    outfile.close();
     return (0);
 }
