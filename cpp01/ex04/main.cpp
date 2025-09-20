@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 13:58:43 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/09/20 16:02:30 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/09/20 16:13:51 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,15 @@ int main(int ac, char **av)
     {
         pos = 0;
         pos = line.find(s1, pos);
-        std::cout << line;
         while (pos != std::string::npos)
         {
             line.erase(pos, s1.length());
             line.insert(pos, s2);
-            outfile << line;
             pos = line.find(s1, pos);
         }
+        outfile << line;
+        if (!file.eof() && s1 != "\n")
+            outfile << std::endl;
     }
     file.close();
     outfile.close();
