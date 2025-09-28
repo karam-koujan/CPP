@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 10:38:11 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/09/18 12:30:46 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/09/28 09:44:32 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void Zombie::announce()
     std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void Zombie::set_name(std::string name)
+void Zombie::setName(std::string name)
 {
     this->name = name;
 }

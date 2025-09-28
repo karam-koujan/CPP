@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 10:37:55 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/09/18 12:15:05 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/09/28 09:44:54 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Zombie
         Zombie();
         ~Zombie();
         void    announce(void);
-        void    set_name(std::string name);
+        void    setName(std::string name);
     private :
         std::string name;
 };
