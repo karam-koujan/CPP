@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 13:58:43 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/09/20 16:13:51 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/09/29 08:46:48 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int main(int ac, char **av)
     while (std::getline(file, line))
     {
         pos = 0;
+        if(!file.eof())
+            line += "\n";
         pos = line.find(s1, pos);
         while (pos != std::string::npos)
         {
@@ -44,8 +46,6 @@ int main(int ac, char **av)
             pos = line.find(s1, pos);
         }
         outfile << line;
-        if (!file.eof() && s1 != "\n")
-            outfile << std::endl;
     }
     file.close();
     outfile.close();
