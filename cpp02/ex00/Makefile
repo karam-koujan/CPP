@@ -1,5 +1,5 @@
-Name = ex01
-CC = cc
+Name = ex00
+CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ = Fixed.o main.o
 
