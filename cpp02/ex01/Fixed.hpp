@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 11:27:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/02 18:31:39 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/03 11:43:06 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ class Fixed
         ~Fixed();
         int getRawBits (void) const;
         void setRawBits(int const raw);
-        
+        float toFloat(void) const;
+        int toInt( void ) const;        
 };
 
 #endif

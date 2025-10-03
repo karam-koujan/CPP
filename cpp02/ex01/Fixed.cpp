@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:13:31 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/03 11:33:57 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/03 11:47:11 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Fixed::Fixed():_integer(0)
 
 Fixed::Fixed(const int number)
 {
-    _integer <<= _fraction_bits;
+    _integer = number << _fraction_bits;
 }
 
 Fixed::Fixed(const float number)
@@ -55,3 +55,14 @@ int Fixed::getRawBits(void) const
     return _integer;
 }
 
+
+int Fixed::toInt(void) const
+{
+    return _integer >> _fraction_bits;
+}
+
+float Fixed::toFloat(void) const
+{
+    float result = (float)_integer / (1 << _fraction_bits);
+    return result;
+}
