@@ -6,13 +6,13 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 11:27:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/04 09:33:17 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/04 11:02:04 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 #define FIXED_HPP
-
+#include <iostream>
 class Fixed
 {
     private :
@@ -24,12 +24,11 @@ class Fixed
         Fixed(const int number);
         Fixed(const float number);
         Fixed &operator=(const Fixed &other);
-        std::ostream &Fixed::operator<<(std::ostream &out);
         ~Fixed();
         int getRawBits (void) const;
         void setRawBits(int const raw);
         float toFloat(void) const;
         int toInt( void ) const;        
 };
-
+std::ostream &operator<<(std::ostream &out, Fixed const &obj);
 #endif
