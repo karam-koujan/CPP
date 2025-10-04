@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:13:31 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/04 12:58:57 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/04 13:43:57 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,45 @@ std::ostream &operator<<(std::ostream &out, Fixed const &obj)
 {
     out << obj.toFloat();
     return (out);
+}
+
+bool Fixed::operator<(const Fixed &other)
+{
+    return (this->_integer < other.getRawBits());
+}
+
+bool Fixed::operator>(const Fixed &other)
+{
+    return (this->_integer > other.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed &other)
+{
+    return (this->_integer <= other.getRawBits());
+}
+
+bool Fixed::operator>(const Fixed &other)
+{
+    return (this->_integer >= other.getRawBits());
+}
+
+Fixed Fixed::operator+(const Fixed &other)
+{
+    Fixed result;
+    result.setRawBits(this->_integer + other.getRawBits());
+    return result;
+}
+
+Fixed Fixed::operator-(const Fixed &other)
+{
+    Fixed result;
+    result.setRawBits(this->_integer - other.getRawBits());
+    return result;
+}
+
+Fixed Fixed::operator*(const Fixed &other)
+{
+    Fixed result;
+    result.setRawBits(this->_integer + other.getRawBits());
+    return result;
 }
