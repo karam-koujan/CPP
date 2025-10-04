@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:13:31 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/04 13:43:57 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/04 14:18:56 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,41 +76,51 @@ std::ostream &operator<<(std::ostream &out, Fixed const &obj)
 
 bool Fixed::operator<(const Fixed &other)
 {
-    return (this->_integer < other.getRawBits());
+    return (this->_integer < other._integer);
 }
 
 bool Fixed::operator>(const Fixed &other)
 {
-    return (this->_integer > other.getRawBits());
+    return (this->_integer > other._integer);
 }
 
 bool Fixed::operator<=(const Fixed &other)
 {
-    return (this->_integer <= other.getRawBits());
+    return (this->_integer <= other._integer);
 }
 
 bool Fixed::operator>(const Fixed &other)
 {
-    return (this->_integer >= other.getRawBits());
+    return (this->_integer >= other._integer);
 }
 
 Fixed Fixed::operator+(const Fixed &other)
 {
     Fixed result;
-    result.setRawBits(this->_integer + other.getRawBits());
+    result._integer = this->_integer + other._integer;
     return result;
 }
 
 Fixed Fixed::operator-(const Fixed &other)
 {
     Fixed result;
-    result.setRawBits(this->_integer - other.getRawBits());
+    result._integer = this->_integer - other._integer;
     return result;
 }
 
 Fixed Fixed::operator*(const Fixed &other)
 {
     Fixed result;
-    result.setRawBits(this->_integer + other.getRawBits());
+    long long r = this->_integer * other._integer;
+    r >>= _fraction_bits;
+    result._integer = r;
     return result;
 }
+
+Fixed Fixed::operator/(const Fixed &other)
+{
+    Fixed result;
+    result._integer = (this->_integer << _fraction_bits) / other._integer;
+    return result;
+}
+
