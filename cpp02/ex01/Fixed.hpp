@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 11:27:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/03 11:43:06 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/04 09:33:17 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Fixed
         Fixed(const int number);
         Fixed(const float number);
         Fixed &operator=(const Fixed &other);
+        std::ostream &Fixed::operator<<(std::ostream &out);
         ~Fixed();
         int getRawBits (void) const;
         void setRawBits(int const raw);

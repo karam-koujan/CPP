@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:13:31 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/03 11:47:11 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/04 09:34:38 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,10 @@ float Fixed::toFloat(void) const
 {
     float result = (float)_integer / (1 << _fraction_bits);
     return result;
+}
+
+std::ostream &Fixed::operator<<(std::ostream &out)
+{
+    out << this->toFloat();
+    return (out);
 }
