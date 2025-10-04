@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:13:31 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/04 14:18:56 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/04 14:55:24 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,4 +123,26 @@ Fixed Fixed::operator/(const Fixed &other)
     result._integer = (this->_integer << _fraction_bits) / other._integer;
     return result;
 }
+Fixed Fixed::operator++()
+{
+    this->_integer = this->_integer + (1 >> _fraction_bits);
+    return *this;
+}
+Fixed Fixed::operator++(int)
+{
+    Fixed tmp = *this;
+    this->_integer = this->_integer + (1 >> _fraction_bits);
+    return tmp;
+}
 
+Fixed Fixed::operator--()
+{
+    this->_integer = this->_integer - (1 >> _fraction_bits);
+    return *this;
+}
+Fixed Fixed::operator--(int)
+{
+    Fixed tmp = *this;
+    this->_integer = this->_integer - (1 >> _fraction_bits);
+    return tmp;
+}
