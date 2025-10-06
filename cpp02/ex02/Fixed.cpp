@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:13:31 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/04 14:55:24 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/06 09:58:32 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ bool Fixed::operator<=(const Fixed &other)
     return (this->_integer <= other._integer);
 }
 
-bool Fixed::operator>(const Fixed &other)
+bool Fixed::operator>=(const Fixed &other)
 {
     return (this->_integer >= other._integer);
 }
@@ -145,4 +145,39 @@ Fixed Fixed::operator--(int)
     Fixed tmp = *this;
     this->_integer = this->_integer - (1 >> _fraction_bits);
     return tmp;
+}
+
+        // static Fixed min(Fixed &a, Fixed &b);
+        // static Fixed min(Fixed const &a, Fixed const &b);
+        // static Fixed max(Fixed &a, Fixed &b);
+        // static Fixed max(Fixed const &a, Fixed const &b);
+
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+    if (a._integer < b._integer)
+        return a;
+    else
+        return b;
+}
+const Fixed &Fixed::min(Fixed const &a, Fixed const &b)
+{
+    if (a._integer < b._integer)
+        return a;
+    else
+        return b;
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+    if (a._integer < b._integer)
+        return b;
+    else
+        return a;
+}
+const Fixed &Fixed::max(Fixed const &a, Fixed const &b)
+{
+    if (a._integer < b._integer)
+        return b;
+    else
+        return a;
 }
