@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 13:58:43 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/09/29 08:46:48 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/06 08:53:53 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int main(int ac, char **av)
     std::string s1 = av[2];
     std::string s2 = av[3];
     std::string line;
+    if(s1.empty())
+    {
+        std::cerr << "The second arg is empty" << std::endl;
+        return (1);
+    }
     std::ifstream file(filepath);
     std::ofstream outfile(filepath + ".replace");
     if (!file.is_open() || !outfile.is_open())
@@ -43,6 +48,7 @@ int main(int ac, char **av)
         {
             line.erase(pos, s1.length());
             line.insert(pos, s2);
+            pos+= s2.length();
             pos = line.find(s1, pos);
         }
         outfile << line;
