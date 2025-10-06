@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 10:52:35 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/06 13:44:24 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/06 13:53:03 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Point::Point(): x(0), y(0){
 Point::Point(const float a, const float b): x(a), y(b){
     std::cout<< "copy constructor" << std::endl;
 };
-Point::Point(Point &other): x(other.x), y(other.y){
+Point::Point(const Point &other): x(other.x), y(other.y){
         std::cout<< "default constructor" << std::endl;
 };
 Point &Point::operator=(Point &other)
