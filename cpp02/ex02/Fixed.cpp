@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:13:31 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/06 09:58:32 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/06 10:18:03 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,32 +125,27 @@ Fixed Fixed::operator/(const Fixed &other)
 }
 Fixed Fixed::operator++()
 {
-    this->_integer = this->_integer + (1 >> _fraction_bits);
+    this->_integer++;
     return *this;
 }
 Fixed Fixed::operator++(int)
 {
     Fixed tmp = *this;
-    this->_integer = this->_integer + (1 >> _fraction_bits);
+    this->_integer++;
     return tmp;
 }
 
 Fixed Fixed::operator--()
 {
-    this->_integer = this->_integer - (1 >> _fraction_bits);
+    this->_integer--;
     return *this;
 }
 Fixed Fixed::operator--(int)
 {
     Fixed tmp = *this;
-    this->_integer = this->_integer - (1 >> _fraction_bits);
+    this->_integer--;
     return tmp;
 }
-
-        // static Fixed min(Fixed &a, Fixed &b);
-        // static Fixed min(Fixed const &a, Fixed const &b);
-        // static Fixed max(Fixed &a, Fixed &b);
-        // static Fixed max(Fixed const &a, Fixed const &b);
 
 Fixed &Fixed::min(Fixed &a, Fixed &b)
 {
