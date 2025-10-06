@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 10:40:07 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/06 10:55:38 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/06 13:44:40 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ class Point
         //anything else useful
     public:
         Point();
-        Point(float a, float b);
+        Point(const float a, const float b);
         Point(Point &other);
         Point &operator=(Point &other);
         ~Point();
+        float getX() const;
+        float getY() const;
 };
 
 #endif

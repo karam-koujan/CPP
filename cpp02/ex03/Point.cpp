@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 10:52:35 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/06 11:04:11 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/06 13:44:24 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Point::Point(): x(0), y(0){
     std::cout<< "default constructor" << std::endl;
 };
-Point::Point(float a, float b): x(a), y(b){
+Point::Point(const float a, const float b): x(a), y(b){
     std::cout<< "copy constructor" << std::endl;
 };
 Point::Point(Point &other): x(other.x), y(other.y){
@@ -23,9 +23,18 @@ Point::Point(Point &other): x(other.x), y(other.y){
 };
 Point &Point::operator=(Point &other)
 {
+    (void)other;
     return *this;
 }
 Point::~Point()
 {
     std::cout<< "the obj is destroyed" << std::endl;
+}
+float Point::getX() const
+{
+    return x.toFloat();
+}
+float  Point::getY() const
+{
+    return y.toFloat();
 }
