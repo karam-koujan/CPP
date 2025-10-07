@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 09:24:59 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/07 10:17:25 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/07 10:43:19 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,23 @@ void ClapTrap::attack(const std::string& target)
     {
         this->energyPoints--;        
         std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
+        return;
     }
+    std::cout <<  "ClapTrap " << this->name  << "has not enough energy to attack" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    this->hitPoints-= amount;
-    std::cout << "ClapTrap " << this->name << " took damage " << amount << ", causing " << this->attackDamage << " points of damage!" << std::endl;     
+    if (this->hitPoints == 0)
+    {
+        std::cout << this->name << "is already dead" << std::endl;
+        return ;
+    }
+    if (amount >= this->hitPoints)
+        this->hitPoints = 0;
+    else
+        this->hitPoints-= amount;
+    std::cout << "ClapTrap " << this->name << "took amount " << amount << " of damage, current hitpoints is" << this->hitPoints << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -73,6 +83,8 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         this->energyPoints--;
         this->hitPoints+= amount;
-        std::cout << "ClapTrap " << this->name << " repairs itself and it gains " << amount << "of hits points, that costs " << std::endl;     
+        std::cout << "ClapTrap " << this->name << " repairs itself and it gains " << amount << "of hits points, that costs " << std::endl;
+        return ;
     }
+    std::cout << "ClapTrap " << this->name << "cannot repairs itself and it gains " << std::endl;
 }
