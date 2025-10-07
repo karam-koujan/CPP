@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 09:05:02 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/07 09:54:41 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/07 10:56:47 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 class ClapTrap
 {
     private :
-        std::string name;
         unsigned int hitPoints;
         unsigned int energyPoints;
         unsigned int attackDamage;
+        std::string name;
     public :
         ClapTrap();
         ClapTrap(std::string name);
