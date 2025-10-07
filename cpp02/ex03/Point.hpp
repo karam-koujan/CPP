@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 10:40:07 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/06 13:52:51 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/07 08:18:20 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ class Point
         float getY() const;
 };
 
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 #endif
