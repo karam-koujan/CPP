@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 10:48:40 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/07 08:50:01 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/07 08:55:15 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 
 float   cross_product(const Point &a, const Point &b)
 {
-    float cp = a.getX() * b.getY() - a.getY() * b.getX();
-    std::cout<< "cross product :" << cp << std::endl;
-    return (cp);
+    return a.getX() * b.getY() - a.getY() * b.getX();
 }
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
