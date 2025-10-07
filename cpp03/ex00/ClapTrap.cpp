@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 09:24:59 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/07 11:03:39 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/07 11:20:44 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         this->energyPoints--;
         this->hitPoints+= amount;
-        std::cout << "ClapTrap " << this->name << " repairs itself and it gains " << amount << " of hits points, that costs " << std::endl;
+        std::cout << "ClapTrap " << this->name << " repairs itself and it gains " << amount << " current hitpoint is " << this->hitPoints <<std::endl;
         return ;
     }
     std::cout << "ClapTrap " << this->name << " cannot repairs itself" << std::endl;
