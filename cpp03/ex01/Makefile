@@ -1,4 +1,4 @@
-NAME = ex00
+NAME = ex01
 FLAGS = -Werror -Wextra -Wall -std=c++98
 OBJ = main.o ClapTrap.o ScavTrap.o
 CC = c++
