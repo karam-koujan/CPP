@@ -6,20 +6,28 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 09:54:56 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/10 10:28:12 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/10 11:13:49 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap(): hitPoints(100), energyPoints(50), attackDamage(20), name("")
+ScavTrap::ScavTrap()
 {
+    hitPoints = 100;
+    energyPoints = 50;
+    attackDamage = 20;
+    name = "";
     std::cout << "Default Constructor for ScavTrap" << std::endl;    
 }
 
-ScavTrap::ScavTrap(std::string n): hitPoints(100), energyPoints(50), attackDamage(20), name(n)
+ScavTrap::ScavTrap(std::string n)
 {
+    hitPoints = 100;
+    energyPoints = 50;
+    attackDamage = 20;
+    name = n;
     std::cout << "parametrized constructor is called" << std::endl;   
 }
 

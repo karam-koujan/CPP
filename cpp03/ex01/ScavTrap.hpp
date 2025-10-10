@@ -6,13 +6,16 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:23:03 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/10 10:08:52 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/10 10:40:55 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-class ScavTrap : ClapTrap
+class ScavTrap : public ClapTrap
 {
     public :
         ScavTrap();
@@ -23,3 +26,5 @@ class ScavTrap : ClapTrap
         void guardGate();
         
 };
+
+#endif

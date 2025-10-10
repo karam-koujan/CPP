@@ -1,6 +1,6 @@
 NAME = ex00
 FLAGS = -Werror -Wextra -Wall -std=c++98
-OBJ = main.o ClapTrap.o
+OBJ = main.o ClapTrap.o ScavTrap.o
 CC = c++
 
 all: $(NAME)
@@ -8,7 +8,7 @@ all: $(NAME)
 $(NAME) : $(OBJ)	
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp ClapTrap.hpp
+%.o: %.cpp ClapTrap.hpp ScavTrap.hpp
 	$(CC) $(FLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJ)
