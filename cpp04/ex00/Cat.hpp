@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:34:41 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/29 15:18:58 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/29 15:20:01 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Cat : public Animal
         Cat &operator=(const Cat &other);
         std::string getType() const;
         void    setType(std::string type);
-        void    makeSound() const;
 };
 
 #endif

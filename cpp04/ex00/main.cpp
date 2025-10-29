@@ -6,11 +6,10 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:22:52 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/29 15:04:51 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/29 15:23:49 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include <iostream>
