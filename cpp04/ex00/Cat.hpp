@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:34:41 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/29 14:35:39 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/29 14:39:08 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ class Cat : public Animal
         ~Cat();
         Cat(const Animal &other);
         Cat &operator=(const Animal &other);
-         
+        void    getType();
+        void    setType();
 };
 
 #endif
