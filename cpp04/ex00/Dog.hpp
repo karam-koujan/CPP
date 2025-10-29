@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:28:49 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/29 14:39:46 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/29 14:56:04 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class Dog : public Animal
         ~Dog();
         Dog(const Animal &other);
         Dog &operator=(const Animal &other);
-        void    getType();
-        void    setType();        
+        std::string  getType();
+        void    setType(std::string type);
+        void    makeSound();
 };
-
 #endif
