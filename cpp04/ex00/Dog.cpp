@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:00:57 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/29 15:08:08 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/10/29 15:17:27 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Dog &Dog::operator=(const Dog &other)
     return (*this);
 }
 
-std::string Dog::getType()
+std::string Dog::getType() const
 {
     return this->type;
 }
@@ -51,7 +51,7 @@ void Dog::setType(std::string type)
     this->type = type;
 }
 
-void    Animal::makeSound()
+void    Animal::makeSound() const
 {
     std::cout << "Dog sound" << std::endl;
 }
