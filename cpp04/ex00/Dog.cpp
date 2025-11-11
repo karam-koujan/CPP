@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:00:57 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/29 15:17:27 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/11 17:19:12 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void Dog::setType(std::string type)
     this->type = type;
 }
 
-void    Animal::makeSound() const
+void    Dog::makeSound() const
 {
     std::cout << "Dog sound" << std::endl;
 }
