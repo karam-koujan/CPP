@@ -6,12 +6,13 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:22:52 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/11 17:25:52 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/11 17:52:20 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 #include <iostream>
 
 int main()
@@ -26,5 +27,16 @@ int main()
     j->makeSound();
     meta->makeSound();
     c.makeSound();
+    WrongAnimal *wanimal = new WrongAnimal();
+    wanimal->makeSound();
+    WrongCat *wCat = new WrongCat();
+    wCat->makeSound();
+    WrongAnimal *pwCat = new WrongCat();
+    pwCat->makeSound();
+    delete pwCat;
+    delete wCat;
+    delete i;
+    delete j;
+    delete meta;
     return 0;
 }
