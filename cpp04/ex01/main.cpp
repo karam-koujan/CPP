@@ -6,37 +6,28 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:22:52 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/11 17:52:20 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/13 16:54:32 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
+#include "Brain.hpp"
 #include <iostream>
 
 int main()
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    const Animal c = Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound();
-    j->makeSound();
-    meta->makeSound();
-    c.makeSound();
-    WrongAnimal *wanimal = new WrongAnimal();
-    wanimal->makeSound();
-    WrongCat *wCat = new WrongCat();
-    wCat->makeSound();
-    WrongAnimal *pwCat = new WrongCat();
-    pwCat->makeSound();
-    delete pwCat;
-    delete wCat;
-    delete i;
-    delete j;
-    delete meta;
+    int animalSize = 4;
+    Animal *Animals = new Animal[animalSize];
+    for (int i = 0; i < animalSize / 2; i++)
+    {
+        Animal *dog = new Dog();
+        Animals[i] = *dog;
+    }
+    for (int i = 0; i < animalSize / 2; i++)
+    {
+        Animal *cat = new Cat();
+        Animals[i] = *cat;
+    }
     return 0;
 }
