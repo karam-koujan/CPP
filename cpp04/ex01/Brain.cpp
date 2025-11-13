@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 16:32:16 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/13 16:39:41 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/13 17:47:26 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 
 Brain::Brain()
 {
+    for (int i = 0; i < 100; i++)
+    {
+        this->ideas[i] = "idea" + i;
+    }
     std::cout << "Brain default constructor" << std::endl;
 }
 
@@ -28,13 +32,20 @@ Brain::~Brain()
 Brain::Brain(const Brain &other)
 {
     std::cout << "Brain copy constuctor" << std::endl;
+    for (int i = 0; i < 100; i++)
+    {
+        this->ideas[i] = other.ideas[i];
+    }
 }
 
 Brain &Brain::operator=(const Brain &other)
 {
     if (this != &other)
     {
-        //deep copy
+        for (int i = 0; i < 100; i++)
+        {
+            this->ideas[i] = other.ideas[i];
+        }
     }
     std::cout << "Brain copy assignement is called" << std::endl;
     return (*this);
