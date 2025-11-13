@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:56:55 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/13 16:31:09 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/13 17:52:58 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ Cat::~Cat()
 Cat::Cat(const Cat &other)
 {
     this->type = other.type;
+    Brain *brain = new Brain();
+    *brain = *other.brain;
+    this->brain = brain; 
     std::cout << "Cat copy constuctor" << std::endl;
 }
 
@@ -36,6 +39,9 @@ Cat &Cat::operator=(const Cat &other)
 {
     if (this != &other)
     {
+        Brain *brain = new Brain();
+        *brain = *other.brain;
+        this->brain = brain; 
         this->type = other.type;   
     }
     std::cout << "Cat copy assignement is called" << std::endl;
