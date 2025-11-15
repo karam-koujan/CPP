@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 11:45:30 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/10 11:55:17 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/15 09:49:19 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@ FragTrap::FragTrap()
 {
     hitPoints = 100;
     energyPoints = 100;
-    attackDamage = 60;
+    attackDamage = 30;
     name = "";
     std::cout << "Default Constructor for FragTrap" << std::endl;    
 }
 
 FragTrap::~FragTrap()
 {
-    std::cout << "Deconstructor for FragTrap" << std::endl;      
+    std::cout << "Destructor for FragTrap" << std::endl;      
 } 
 
 FragTrap::FragTrap(std::string n)
 {
     hitPoints = 100;
-    energyPoints = 50;
-    attackDamage = 20;
+    energyPoints = 100;
+    attackDamage = 30;
     name = n;
     std::cout << "parametrized constructor is called of FragTrap" << std::endl;   
 }

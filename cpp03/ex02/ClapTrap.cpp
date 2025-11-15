@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 09:24:59 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/07 11:29:29 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/15 09:44:02 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 ClapTrap::ClapTrap():hitPoints(10), energyPoints(10), attackDamage(0), name("")
 {
-    std::cout << "default constructor is called" << std::endl;
+    std::cout << "Claptrap default constructor is called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string n): hitPoints(10), energyPoints(10), attackDamage(0), name(n)
 {
-    std::cout << "parameterized constructor is called of name " << this->name << std::endl;
+    std::cout << "Claptrap parameterized constructor is called of name " << this->name << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(const ClapTrap &other)
     this->hitPoints = other.hitPoints;
     this->energyPoints = other.energyPoints;
     this->attackDamage = other.attackDamage;
-    std::cout << "copy constructor is called of name " << this->name << std::endl;
+    std::cout << "Claptrap copy constructor is called of name " << this->name << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
@@ -40,14 +40,14 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
         this->hitPoints = other.hitPoints;
         this->energyPoints = other.energyPoints;
         this->attackDamage = other.attackDamage;
-        std::cout << "assignement operator is called of name "<< this->name << std::endl;
+        std::cout << "Claptrap assignement operator is called of name "<< this->name << std::endl;
     }
     return (*this);
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout<< "destructors is called of name "<< this->name << std::endl;
+    std::cout<< "Claptrap destructors is called of name "<< this->name << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)

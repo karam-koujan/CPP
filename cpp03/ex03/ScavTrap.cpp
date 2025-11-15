@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 09:54:56 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/10 11:34:38 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/15 09:49:32 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ScavTrap::ScavTrap()
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "Deconstructor for ScavTrap" << std::endl;      
+    std::cout << "Destructor for ScavTrap" << std::endl;      
 } 
 
 ScavTrap::ScavTrap(std::string n)
