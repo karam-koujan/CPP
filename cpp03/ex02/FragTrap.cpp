@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 11:45:30 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/15 09:49:19 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/15 11:05:07 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,22 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
         std::cout << "assignement operator of FragTrap is called with name "<< this->name << std::endl;
     }
     return (*this);
+}
+
+void FragTrap::attack(const std::string& target)
+{
+    if (!this->attackDamage)
+    {
+        std::cout <<  "FragTrap " << this->name  << " has zero attack damage" << std::endl;
+        return ;     
+    }
+    if (this->hitPoints > 0 && this->energyPoints > 0)
+    {
+        this->energyPoints--;        
+        std::cout << "FragTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
+        return;
+    }
+    std::cout <<  "FragTrap " << this->name  << " has not enough energy to attack" << std::endl;
 }
 
 void FragTrap::highFivesGuys()

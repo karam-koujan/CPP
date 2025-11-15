@@ -1,5 +1,5 @@
 NAME = ex03
-FLAGS = -Werror -Wextra -Wall  -std=c++98
+FLAGS = -Werror -Wextra -Wall -std=c++98
 OBJ = main.o ClapTrap.o FragTrap.o ScavTrap.o DiamondTrap.o
 CC = c++
 

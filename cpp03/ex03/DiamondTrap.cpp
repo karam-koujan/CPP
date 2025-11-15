@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 09:00:10 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/15 10:41:51 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/15 11:19:44 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ DiamondTrap::~DiamondTrap()
     std::cout << "Diamond destructor called" << std::endl;   
 }
 
-DiamondTrap::DiamondTrap(std::string n): ClapTrap(n + "_clap_name"), FragTrap(n), ScavTrap(n)
+DiamondTrap::DiamondTrap(std::string n): ClapTrap(), FragTrap(), ScavTrap()
 {
+    ClapTrap::name = n + "_clap_name";
     this->name = n;
     this->hitPoints = FragTrap::hitPoints;
     this->energyPoints = ScavTrap::energyPoints;
@@ -50,8 +51,8 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
         this->hitPoints = other.hitPoints;
         this->energyPoints = other.energyPoints;
         this->attackDamage = other.attackDamage;
-        std::cout << "assignement operator of DiamondTrap is called with name "<< this->name << std::endl;
     }
+    std::cout << "assignement operator of DiamondTrap is called with name "<< this->name << std::endl;
     return (*this);
 }
 

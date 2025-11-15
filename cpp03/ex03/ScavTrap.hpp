@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:23:03 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/10/11 10:24:29 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/15 11:06:57 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class ScavTrap : virtual public ClapTrap
         ScavTrap(const ScavTrap &other);
         ~ScavTrap();
         ScavTrap &operator=(const ScavTrap &other);
+        void attack(const std::string& target);
         void guardGate();
         
 };

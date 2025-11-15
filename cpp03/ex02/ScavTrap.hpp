@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:23:03 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/15 09:46:08 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/15 11:01:50 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ class ScavTrap : public ClapTrap
         ScavTrap(const ScavTrap &other);
         ~ScavTrap();
         ScavTrap &operator=(const ScavTrap &other);
-        void guardGate();   
+        void attack(const std::string& target);
+        void guardGate();
+        
 };
 
 #endif
