@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:56:55 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/16 14:25:19 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/16 14:50:56 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,9 @@ void Cat::setType(std::string type)
 void    Cat::makeSound() const
 {
     std::cout << "Cat sound" << std::endl;
+}
+
+Brain *Cat::getBrain()
+{
+    return this->brain;
 }

@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:22:52 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/16 14:36:19 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/16 14:52:25 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main()
 {
-    int animalSize = 4;
+    int animalSize = 5;
     Animal **Animals = new Animal*[animalSize];
     int rest = 0;
     for (int i = 0; i < animalSize / 2; i++)
@@ -36,5 +36,14 @@ int main()
         delete Animals[i];
     }
     delete[] Animals;
+
+    Dog dog = Dog();
+    Dog cpDog = dog;
+    std::cout << "dog brain address: " << dog.getBrain() << " copy dog brain address: " << cpDog.getBrain() << std::endl;
+
+    Cat cat = Cat();
+    Cat cpCat = cat;
+    std::cout << "cat brain address: " << cat.getBrain() << " copy cat brain address: " << cpCat.getBrain() << std::endl;
+
     return 0;
 }
