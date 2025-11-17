@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:22:52 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/17 11:44:41 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/17 12:48:47 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main()
     }
     for (int i = 0; i < animalSize; i++)
     {
+        Animals[i]->makeSound();
         delete Animals[i];
     }
     delete[] Animals;
