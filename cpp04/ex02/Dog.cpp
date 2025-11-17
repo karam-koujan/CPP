@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:00:57 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/16 14:44:02 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/17 17:02:43 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ Dog &Dog::operator=(const Dog &other)
     {
         Brain *brain = new Brain();
         *brain = *other.brain;
+        delete this->brain;
         this->brain = brain; 
         this->type = other.type;   
     }
@@ -64,7 +65,7 @@ void    Dog::makeSound() const
     std::cout << "Dog sound" << std::endl;
 }
 
-Brain *Dog::getBrain()
+const Brain& Dog::getBrain() const
 {
-    return this->brain;
+    return *this->brain;
 }

@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:30:18 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/13 16:40:10 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/17 16:58:12 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Brain
         ~Brain();
         Brain(const Brain &other);
         Brain& operator=(const Brain &other);
-        std::string *getIdeas() const; 
 };
 
 

@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:22:52 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/17 12:48:47 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/17 16:59:39 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int main()
 
     Dog dog = Dog();
     Dog cpDog = dog;
-    std::cout << "dog brain address: " << dog.getBrain() << " copy dog brain address: " << cpDog.getBrain() << std::endl;
+    std::cout << "dog brain address: " << &dog.getBrain() << " copy dog brain address: " << &cpDog.getBrain() << std::endl;
 
     Cat cat = Cat();
     Cat cpCat = cat;
-    std::cout << "cat brain address: " << cat.getBrain() << " copy cat brain address: " << cpCat.getBrain() << std::endl;
+    std::cout << "cat brain address: " << &cat.getBrain() << " copy cat brain address: " << &cpCat.getBrain() << std::endl;
 
     return 0;
 }

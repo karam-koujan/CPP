@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:56:55 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/16 14:50:56 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/17 16:59:55 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ Cat &Cat::operator=(const Cat &other)
     {
         Brain *brain = new Brain();
         *brain = *other.brain;
+        delete this->brain;
         this->brain = brain; 
         this->type = other.type;   
     }
@@ -63,7 +64,7 @@ void    Cat::makeSound() const
     std::cout << "Cat sound" << std::endl;
 }
 
-Brain *Cat::getBrain()
+const Brain& Cat::getBrain() const
 {
-    return this->brain;
+    return *this->brain;
 }
