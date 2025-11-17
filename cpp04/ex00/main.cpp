@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:22:52 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/11/11 17:52:20 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/11/17 11:51:30 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int main()
     pwCat->makeSound();
     delete pwCat;
     delete wCat;
+    delete wanimal;
     delete i;
     delete j;
     delete meta;
