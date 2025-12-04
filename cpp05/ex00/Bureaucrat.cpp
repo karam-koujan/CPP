@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 09:36:38 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/04 10:21:04 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/04 10:23:02 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ Bureaucrat::Bureaucrat()
 
 Bureaucrat::Bureaucrat(std::string name, int grad): name(this->name), grad(this->grad)
 {
+    if (grad < 1)
+        throw GradeTooHighException();
+    if (grad > 150)
+        throw GradeTooLowException();
     std::cout << "Bureaucrat parameter constructor" << std::endl;
 }
 
