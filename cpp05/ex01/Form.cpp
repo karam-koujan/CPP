@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:46:11 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/04 11:56:01 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/04 12:06:15 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FORM_HPP
 
 #include <string>
+#include "Bureaucrat.hpp"
 
 class Form
 {
@@ -21,7 +22,7 @@ class Form
         const std::string name;
         bool isSigned;
         const int gradToSign;
-        const int gradToexec;
+        const int gradToExec;
     public :
         Form();
         Form(std::string n, bool isS, int gTs, int gTe);
@@ -29,7 +30,13 @@ class Form
         const Form &operator=(const Form &other);
         ~Form();
         const std::string &getName() const;
-        bool 
+        bool getIsSigned() const;
+        const int getGradToSign() const;
+        const int getGradToExec() const;
+        void    beSigned(const Bureaucrat &bureaucrat);
 };
 
+std::ostream &operator<<(std::ostream &out, const Form &form);
+
 #endif
+
