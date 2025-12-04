@@ -6,7 +6,7 @@
 #    By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/04 09:38:43 by kkoujan           #+#    #+#              #
-#    Updated: 2025/12/04 09:42:27 by kkoujan          ###   ########.fr        #
+#    Updated: 2025/12/04 10:31:56 by kkoujan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ $(Name) : $(OBJ)
 	$(CPP) $(OBJ) -o $(Name)
 
 %.o:%.cpp Bureaucrat.hpp
-	$(CPP) -c $@ -o $^
+	$(CPP) -c $< -o $@
 
 clean: 
 	rm -f $(OBJ)
