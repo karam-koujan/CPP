@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:46:11 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/04 12:34:02 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/08 15:29:12 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,43 @@ const Form &Form::operator=(const Form &other)
 }
 
 
+Form::~Form()
+{
+    std::cout << "Form destructor is called" << std::endl;
+}
+
+const std::string &Form::getName() const
+{
+    return this->name;
+}
+
+bool Form::getIsSigned() const
+{
+    return this->isSigned;
+}
+
+const int Form::getGradToSign() const
+{
+    return this->gradToSign;
+}
+
+const int Form::getGradToExec() const
+{
+    return this->gradToExec;
+}
+
+void    Form::beSigned(const Bureaucrat &bureaucrat)
+{
+    if (bureaucrat.getGrade() <= this->getGradToSign())
+        this->isSigned = 1;
+    else
+        Bureaucrat::GradeTooLowException();
+}
+
+std::ostream &operator<<(std::ostream &out, const Form &form)
+{
+    out << "name :" << form.getName() << std::endl;
+    out << "gradToSign :" << form.getGradToSign() << std::endl;
+    out << "gradToExec :" << form.getGradToExec() << std::endl;
+    return out;
+}
