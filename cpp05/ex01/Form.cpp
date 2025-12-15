@@ -6,11 +6,13 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:46:11 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/15 10:22:28 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/15 10:43:17 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
+
 
 Form::Form(): name("default"), isSigned(false), gradToSign(1), gradToExec(1)
 {
@@ -75,7 +77,7 @@ Form::GradeTooLowException::GradeTooLowException()
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-    std::cout << "The grade is too low" << std::endl;
+    return "The grade is too low" ;
 }
 
 void    Form::beSigned(const Bureaucrat &bureaucrat)
@@ -83,7 +85,7 @@ void    Form::beSigned(const Bureaucrat &bureaucrat)
     if (bureaucrat.getGrade() <= this->getGradToSign())
         this->isSigned = 1;
     else
-        Form::GradeTooLowException();
+        throw Form::GradeTooLowException();
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &form)
