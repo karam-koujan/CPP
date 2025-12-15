@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 09:36:38 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/08 15:26:08 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/15 10:24:39 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,11 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
     return "The grad is too Low";
 }
 
-void    Bureaucrat::signForm(Form &f)
+void    Bureaucrat::signForm()
 {
     try
     {
-        f.beSigned(*this);
+        Form::beSigned(*this);
         std::cout << this->name << " signed " << f.getName();
     }
     catch(const std::exception& e)

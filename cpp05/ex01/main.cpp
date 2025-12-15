@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 10:24:36 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/04 11:40:02 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/15 10:00:19 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,8 @@ int main()
        Bureaucrat b = Bureaucrat("b2", 120);
        std::cout << a << std::endl;
        std::cout << b << std::endl;
-       a.incrementGrad();
-       b.decrementGrad();
-       std::cout << a << std::endl;
-       std::cout << b << std::endl;
-       a.incrementGrad();
+       Form f = Form("f1", 0, 1, 1);
+       a.signForm(f);
    }
    catch(const std::exception& e)
    {

@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:09:15 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/08 15:24:52 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/15 10:25:04 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,15 @@ class Form
         ~Form();
         const std::string &getName() const;
         bool getIsSigned() const;
-        const int getGradToSign() const;
-        const int getGradToExec() const;
+        int getGradToSign() const;
+        int getGradToExec() const;
         void    beSigned(const Bureaucrat &bureaucrat);
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                GradeTooLowException();
+                virtual const char *what() const throw();
+        };
 };
 
 std::ostream &operator<<(std::ostream &out, const Form &form);
