@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:46:11 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/15 10:43:17 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/15 11:09:59 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ const Form &Form::operator=(const Form &other)
 
 Form::~Form()
 {
-    std::cout << "Form destructor is called" << std::endl;
+    std::cout << "Form is destroyed" << std::endl;
 }
 
 const std::string &Form::getName() const

@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 09:36:38 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/04 11:39:16 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/15 11:02:08 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ Bureaucrat::GradeTooHighException::GradeTooHighException()
 
 Bureaucrat::GradeTooLowException::GradeTooLowException()
 {
-    std::cout << "GradeTooHighException" << std::endl;
+    std::cout << "GradeTooLowException" << std::endl;
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 10:24:36 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/04 11:40:02 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/15 09:52:47 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 
 int main()
 {
-    /*
-    - first normal test 
-    - then with low exception
-    - then with higher exception
-    - then try chaining types
-    - then nesting
-    */
    try
    {
        Bureaucrat a = Bureaucrat("b1", 2);
