@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:09:15 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/16 18:28:22 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/16 19:06:35 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class AForm
         AForm(std::string n, bool isS, int gTs, int gTe);
         AForm (const AForm &other);
         const AForm &operator=(const AForm &other);
-        ~AForm();
+        virtual ~AForm();
         const std::string &getName() const;
         bool getIsSigned() const;
         int getGradToSign() const;

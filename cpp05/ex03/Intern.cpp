@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:05:21 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/16 18:21:08 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/16 19:10:50 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ const Intern &Intern::operator=(const Intern &other)
 {
     (void)(other);
     std::cout << "Intern assignment operator" << std::endl;
+    return *this;
 }
 
 AForm *Intern::makeForm(std::string formName, std::string target)

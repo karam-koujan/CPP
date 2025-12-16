@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:29:56 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/16 15:49:26 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/16 19:09:30 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void    ShrubberyCreationForm::execAction(Bureaucrat const & executor) const
 {
     this->execute(executor);
-    std::ofstream targetFile(target + "_shrubbery");
+    std::ofstream targetFile((target + "_shrubbery").c_str());
     if (!targetFile.is_open())
     {
         std::cerr << "file is not open" << std::endl;
