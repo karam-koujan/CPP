@@ -6,12 +6,13 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:29:56 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/16 14:50:40 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/16 15:03:31 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(): AForm("", 0, 145, 137),target("")
 {
@@ -45,7 +46,22 @@ void    ShrubberyCreationForm::execAction(Bureaucrat const & executor)
     try
     {
         this->execute(executor);
-        
+        std::ofstream targetFile(target + "_shrubbery");
+        if (!targetFile.is_open())
+        {
+            std::cerr << "file is not open" << std::endl;
+            return ;
+        }
+        targetFile << "        _-_ \n"
+              "                            /~~   ~~\\\n"
+              "                         /~~         ~~\\\n"
+              "                        {               }\n"
+              "                         \\  _-     -_  /\n"
+              "                           ~  \\\\ //  ~\n"
+              "                        _- -   | | _- _\n"
+              "                          _ -  | |   -_\n"
+              "                              // \\\\\n";
+
     }
     catch(const std::exception& e)
     {
