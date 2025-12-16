@@ -44,6 +44,6 @@ void    RobotomyRequestForm::execAction(Bureaucrat const & executor) const
 {
 
     this->execute(executor);
-    std::cout << this->target << " has been robotomized successfully 50% of the time." << std::endl;
+    std::cout << "Driling noiseeeeeeeee.......\n" << this->target << " has been robotomized successfully 50% of the time." << std::endl;
     
 }
