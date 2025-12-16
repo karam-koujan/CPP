@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:46:12 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/16 14:49:04 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/16 15:37:59 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(std::string t);
         ShrubberyCreationForm(const ShrubberyCreationForm &other);
         const ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
-        void  execAction(Bureaucrat const & executor);
+        void  execAction(Bureaucrat const & executor) const;
 
 };
 

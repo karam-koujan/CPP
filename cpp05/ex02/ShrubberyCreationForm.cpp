@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:29:56 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/16 15:20:24 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/16 15:45:59 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
     std::cout << "Shrubbery is destroyed" << std::endl;
 }
 
-void    ShrubberyCreationForm::execAction(Bureaucrat const & executor)
+void    ShrubberyCreationForm::execAction(Bureaucrat const & executor) const
 {
     this->execute(executor);
     std::ofstream targetFile(target + "_shrubbery");
@@ -50,7 +50,7 @@ void    ShrubberyCreationForm::execAction(Bureaucrat const & executor)
         std::cerr << "file is not open" << std::endl;
         return ;
     }
-    targetFile << "        _-_ \n"
+    targetFile << "                       _-_ \n"
           "                            /~~   ~~\\\n"
           "                         /~~         ~~\\\n"
           "                        {               }\n"
