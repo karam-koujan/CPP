@@ -90,6 +90,16 @@ const char *AForm::GradeTooLowExecException::what() const throw()
     return "The grade is too low to execute an action" ;
 }
 
+AForm::FormNotSigned::FormNotSigned()
+{
+    std::cout << "FormNotSigned" << std::endl;
+}
+
+const char *AForm::FormNotSigned::what() const throw()
+{
+    return "The Form you are trying to execute is not signed" ;
+}
+
 void    AForm::beSigned(const Bureaucrat &bureaucrat)
 {
     if (bureaucrat.getGrade() <= this->getGradToSign())
@@ -100,7 +110,9 @@ void    AForm::beSigned(const Bureaucrat &bureaucrat)
 
 void    AForm::execute(Bureaucrat const & executor) const
 {
-    if (!(this->isSigned && executor.getGrade() <= this->gradToExec))
+    if (!this->isSigned)
+        throw AForm::FormNotSigned();
+    if (!(executor.getGrade() <= this->gradToExec))
         throw AForm::GradeTooLowExecException();
 }
 

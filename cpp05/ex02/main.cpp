@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:29:30 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/16 15:45:33 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/16 16:00:55 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,10 @@
 
 int main()
 {
-    /*
-    - first normal test 
-    - not sign the form
-    - do a low grad to sign
-    */
    try
    {
-       Bureaucrat a = Bureaucrat("b1", 2);
-       ShrubberyCreationForm f = ShrubberyCreationForm();
+       Bureaucrat a = Bureaucrat("b1", 180);
+       ShrubberyCreationForm f = ShrubberyCreationForm("taget");
        a.signForm(f);
        a.executeForm(f);
    }

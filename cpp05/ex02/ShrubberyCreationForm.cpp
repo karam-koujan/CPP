@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:29:56 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/16 15:45:59 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/16 15:49:26 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void    ShrubberyCreationForm::execAction(Bureaucrat const & executor) const
         std::cerr << "file is not open" << std::endl;
         return ;
     }
-    targetFile << "                       _-_ \n"
-          "                            /~~   ~~\\\n"
-          "                         /~~         ~~\\\n"
-          "                        {               }\n"
-          "                         \\  _-     -_  /\n"
-          "                           ~  \\\\ //  ~\n"
-          "                        _- -   | | _- _\n"
-          "                          _ -  | |   -_\n"
-          "                              // \\\\\n";    
+    targetFile << "                               _-_ \n"
+                  "                            /~~   ~~\\\n"
+                  "                         /~~         ~~\\\n"
+                  "                        {               }\n"
+                  "                         \\  _-     -_  /\n"
+                  "                           ~  \\\\ //  ~\n"
+                  "                        _- -   | | _- _\n"
+                  "                          _ -  | |   -_\n"
+                  "                              // \\\\\n";    
 }
