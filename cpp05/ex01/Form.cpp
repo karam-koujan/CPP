@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:46:11 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/15 11:09:59 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/24 14:35:50 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,18 @@ Form::Form(): name("default"), isSigned(false), gradToSign(1), gradToExec(1)
 Form::Form(std::string n, bool isS, int gTs, int gTe): name(n), isSigned(isS), gradToSign(gTs), gradToExec(gTe)
 {
     if (gradToSign < 1 || gradToExec < 1)
-        throw Bureaucrat::GradeTooHighException();
+        throw Form::GradeTooHighException();
     if (gradToSign > 150 || gradToExec > 150)
-        throw Bureaucrat::GradeTooLowException();
+        throw Form::GradeTooLowException();
     std::cout << "Form parameter constructor" << std::endl;
 }
 
 Form::Form(const Form &other): name(other.name), isSigned(other.isSigned), gradToSign(other.gradToSign), gradToExec(other.gradToExec)
 {
+    if (gradToSign < 1 || gradToExec < 1)
+        throw Form::GradeTooHighException();
+    if (gradToSign > 150 || gradToExec > 150)
+        throw Form::GradeTooLowException();
     std::cout << "Form copy constructor " << std::endl;
 }
 
@@ -77,7 +81,17 @@ Form::GradeTooLowException::GradeTooLowException()
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-    return "The grade is too low" ;
+    return "The form grade is too low" ;
+}
+
+Form::GradeTooHighException::GradeTooHighException()
+{
+    std::cout << "Form GradeTooHighException" << std::endl;
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return "The form grade is too high" ;
 }
 
 void    Form::beSigned(const Bureaucrat &bureaucrat)
