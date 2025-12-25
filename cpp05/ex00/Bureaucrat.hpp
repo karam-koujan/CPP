@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 08:23:34 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/04 11:19:00 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/24 14:26:54 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ class Bureaucrat
         {
             public :
                 GradeTooHighException();
-				virtual const char *what() const throw();
+				const char *what() const throw();
         };
         class GradeTooLowException : public std::exception
         {
             public :
                 GradeTooLowException();
-				virtual const char *what() const throw();
+				const char *what() const throw();
         };        
 };
 

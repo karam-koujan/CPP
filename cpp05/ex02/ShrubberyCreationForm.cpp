@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:29:56 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/25 10:34:01 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/25 10:56:37 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ const ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCre
 {
     (void)other;
     std::cout << "Shrubbery copy assignment" << std::endl;
-    return other;
+    return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()

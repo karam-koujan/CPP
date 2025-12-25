@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 09:36:38 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/15 11:02:08 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/24 14:36:39 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ Bureaucrat::Bureaucrat(std::string n, int g): name(n), grad(g)
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other): name(other.name), grad(other.grad)
 {
+    if (grad < 1)
+        throw GradeTooHighException();
+    if (grad > 150)
+        throw GradeTooLowException();
     std::cout << "Bureaucrat copy constructor" << std::endl;
 }
 
