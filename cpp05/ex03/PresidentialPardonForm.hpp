@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:05:08 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/16 16:08:13 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/12/25 09:59:38 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 class PresidentialPardonForm : public AForm
 {
-    private :
-        std::string target;
     public :
         PresidentialPardonForm();
         ~PresidentialPardonForm();

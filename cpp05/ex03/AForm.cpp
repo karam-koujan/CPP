@@ -14,22 +14,26 @@
 #include "Bureaucrat.hpp"
 
 
-AForm::AForm(): name("default"), isSigned(false), gradToSign(1), gradToExec(1)
+AForm::AForm(): name("default"), isSigned(false), gradToSign(1), gradToExec(1), target("")
 {
     std::cout << "AForm default constructor" << std::endl;
 }
 
-AForm::AForm(std::string n, bool isS, int gTs, int gTe): name(n), isSigned(isS), gradToSign(gTs), gradToExec(gTe)
+AForm::AForm(std::string n, bool isS, int gTs, int gTe, std::string tar): name(n), isSigned(isS), gradToSign(gTs), gradToExec(gTe), target(tar)
 {
     if (gradToSign < 1 || gradToExec < 1)
-        throw Bureaucrat::GradeTooHighException();
+        throw AForm::GradeTooHighException();
     if (gradToSign > 150 || gradToExec > 150)
-        throw Bureaucrat::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     std::cout << "AForm parameter constructor" << std::endl;
 }
 
-AForm::AForm(const AForm &other): name(other.name), isSigned(other.isSigned), gradToSign(other.gradToSign), gradToExec(other.gradToExec)
+AForm::AForm(const AForm &other): name(other.name), isSigned(other.isSigned), gradToSign(other.gradToSign), gradToExec(other.gradToExec), target(other.target)
 {
+    if (gradToSign < 1 || gradToExec < 1)
+        throw AForm::GradeTooHighException();
+    if (gradToSign > 150 || gradToExec > 150)
+        throw AForm::GradeTooLowException();
     std::cout << "AForm copy constructor " << std::endl;
 }
 
@@ -39,6 +43,7 @@ const AForm &AForm::operator=(const AForm &other)
     if (this != &other)
     {
         this->isSigned = other.isSigned;
+        this->target = other.target;
     }
     std::cout << "AForm assignmenet operator" << std::endl;
     return *this;
@@ -75,6 +80,16 @@ AForm::GradeTooLowException::GradeTooLowException()
     std::cout << "AForm GradeTooLowException" << std::endl;
 }
 
+AForm::GradeTooHighException::GradeTooHighException()
+{
+    std::cout << "Form GradeTooHighException" << std::endl;
+}
+
+const char *AForm::GradeTooHighException::what() const throw()
+{
+    return "The form grade is too high" ;
+}
+
 const char *AForm::GradeTooLowException::what() const throw()
 {
     return "The grade is too low" ;
@@ -108,6 +123,10 @@ void    AForm::beSigned(const Bureaucrat &bureaucrat)
         throw AForm::GradeTooLowException();
 }
 
+std::string AForm::getTarget() const
+{
+    return this->target;
+}
 void    AForm::execute(Bureaucrat const & executor) const
 {
     if (!this->isSigned)
