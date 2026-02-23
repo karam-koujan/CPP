@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 08:23:34 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/16 15:09:26 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/02/23 20:01:08 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,20 @@ class Bureaucrat
         {
             public :
                 GradeTooHighException();
-				virtual const char *what() const throw();
+                ~GradeTooHighException();
+                GradeTooHighException(const GradeTooHighException &other);
+                GradeTooHighException& operator=(const GradeTooHighException &other);
+				const char *what() const throw();
         };
         class GradeTooLowException : public std::exception
         {
             public :
                 GradeTooLowException();
-				virtual const char *what() const throw();
-        };        
+                ~GradeTooLowException();
+                GradeTooLowException(const GradeTooLowException &other);
+                GradeTooLowException& operator=(const GradeTooLowException &other);
+				const char *what() const throw();
+        };         
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
