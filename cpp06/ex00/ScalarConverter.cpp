@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 21:35:15 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/03/11 23:53:30 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/03/11 23:55:44 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void ScalarConverter::convert(std::string& literal) {
     } else {
         d = std::strtod(literal.c_str(), &endptr);
         if (*endptr != '\0' && std::string(endptr) != "f") {
-            std::cerr << "invalid input" << std::endl;
+           std::cerr << "invalid input" << std::endl;
+           return ;
         }
     }
 
