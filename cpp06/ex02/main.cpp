@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 20:49:35 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/04/06 22:27:24 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/04/06 22:36:45 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 Base *generate(void)
 {
+	srand(1337);
 	int d = rand() % 3;
 	if (d == 0)
 	{
@@ -29,7 +30,7 @@ Base *generate(void)
 		return new B();
 	}
 	
-		return new C();
+	return new C();
 }
 
 void identify(Base* p)
