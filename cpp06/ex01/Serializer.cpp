@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 20:01:40 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/04/06 20:11:53 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/04/06 20:20:07 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@ Serializer& Serializer::operator=(const Serializer& other) {
 
 Serializer::~Serializer() {}
 
-static uintptr_t Serializer::serialize(Data* ptr)
+uintptr_t Serializer::serialize(Data* ptr)
 {
 	return reinterpret_cast<uintptr_t>(ptr);
 }
-static Data* Serializer::deserialize(uintptr_t raw)
+
+Data* Serializer::deserialize(uintptr_t raw)
 {
 	return reinterpret_cast<Data *>(raw);
 
