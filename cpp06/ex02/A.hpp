@@ -6,13 +6,14 @@
 /*   By: kkoujan <kkoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 20:40:03 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/04/06 20:42:52 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/04/06 21:03:56 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef A_HPP
 #define A_HPP
+#include "Base.hpp"
 
-class A{};
+class A: public Base{};
 
 #endif
