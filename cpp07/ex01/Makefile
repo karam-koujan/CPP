@@ -5,27 +5,30 @@
 #                                                     +:+ +:+         +:+      #
 #    By: kkoujan <kkoujan@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/10 21:34:47 by kkoujan           #+#    #+#              #
-#    Updated: 2026/04/06 22:46:47 by kkoujan          ###   ########.fr        #
+#    Created: 2026/04/11 19:16:57 by kkoujan           #+#    #+#              #
+#    Updated: 2026/04/11 19:29:57 by kkoujan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = real
-CC = c++ -Wall -Wextra -Werror
-OBJ = main.o A.o B.o C.o Base.o 
 
-all: $(NAME)
 
-$(NAME) : $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+CC = c++
+FLAGS = -Wall -Werror -Wextra -std=c++98
+NAME= iter
+OBJ= main.o 
 
-%.o : %.cpp A.hpp B.hpp C.hpp Base.hpp
-	$(CC) -c $< -o $@
+all : $(NAME)
 
-clean: $(OBJ)
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+
+%.o:%.cpp iter.hpp
+	$(CC) $(FLAGS) -c $< -o $@
+
+clean : $(OBJ)
 	rm -f $(OBJ)
 
 fclean : clean
 	rm -f $(NAME)
 
-re : fclean all	
+re: fclean all
