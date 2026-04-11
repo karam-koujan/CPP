@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 19:17:04 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/04/11 19:41:46 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/04/11 19:49:00 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_arr(int &ele)
 	std::cout << ele << std::endl;
 }
 
-void	print_float(const float &ele)
+void	print_float(float &ele)
 {
 	std::cout << ele << std::endl;
 }
