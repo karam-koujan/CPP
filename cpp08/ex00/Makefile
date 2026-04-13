@@ -6,7 +6,7 @@
 #    By: kkoujan <kkoujan@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/13 14:45:40 by kkoujan           #+#    #+#              #
-#    Updated: 2026/04/13 14:46:43 by kkoujan          ###   ########.fr        #
+#    Updated: 2026/04/13 14:52:43 by kkoujan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,15 +18,15 @@ OBJ= main.o
 all : $(NAME)
 
 $(NAME): $(OBJ)
-        $(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 %.o:%.cpp easyfind.hpp easyfind.tpp
-        $(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean : $(OBJ)
-        rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean : clean
-        rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all

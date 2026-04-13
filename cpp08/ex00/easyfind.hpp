@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 14:37:34 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/04/13 14:42:43 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/04/13 14:53:57 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 };
 
 template <typename T>
-T::iterator easyfind(T& container, int toFind);
+typename T::iterator easyfind(T& container, int toFind);
 
 #include "easyfind.tpp"
 
