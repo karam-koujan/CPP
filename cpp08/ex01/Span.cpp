@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:46:56 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/01 20:31:44 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/01 22:11:23 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ const Span &Span::operator=(const Span &other)
         vec = other.vec;
         size = other.size;
     }
+    return *this;
 }
 
 

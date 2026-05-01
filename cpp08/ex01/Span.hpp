@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:46:59 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/01 20:27:37 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/01 22:10:51 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class Span
 {
     private :
         unsigned int n;
-        unsigned int size;
         std::vector<int> vec;
+        unsigned int size;
     public :
         Span();
         ~Span();
