@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:46:59 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/01 18:33:49 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/01 18:48:36 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ class Span
         Span(const Span &other);
         const Span &operator=(const Span &other);
         void    addNumber(int number);
-        void    shortestSpan();
-        void    longestSpan();  
+        long    shortestSpan();
+        long    longestSpan();  
 };
 
  #endif
