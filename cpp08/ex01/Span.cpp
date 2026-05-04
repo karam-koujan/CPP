@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:46:56 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/04 15:09:52 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/04 15:20:28 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,22 @@ long    Span::longestSpan()
     std::vector<int>::iterator max = std::max_element(vec.begin(), vec.end());
     std::vector<int>::iterator min = std::min_element(vec.begin(), vec.end());
     return std::abs(*max - *min);
+}
+
+void    Span::addNumbers(std::vector<int>::iterator first, std::vector<int>::iterator end)
+{
+    std::vector<int>::iterator it = first;
+    while (it != end)
+    {
+        try
+        {
+           this->addNumber(*it);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+        
+        ++it;
+    }
 }

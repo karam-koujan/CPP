@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:46:59 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/01 22:10:51 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/04 15:15:37 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Span
         void    addNumber(int number);
         long    shortestSpan();
         long    longestSpan();
+        void    addNumbers(std::vector<int>::iterator first, std::vector<int>::iterator end);
         class FullSpanException : public std::exception
         {
             public:
