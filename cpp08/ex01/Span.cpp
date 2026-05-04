@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:46:56 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/01 22:11:23 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/04 14:44:05 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Span::~Span()
     std::cout << "destructor" << std::endl;
 }
 
-Span::Span(unsigned int N): n(N), vec(N), size(0){}
+Span::Span(unsigned int N): n(N), vec(), size(0){}
 
 
 Span::Span(const Span &other):n(other.n), vec(other.vec), size(0){}
@@ -61,7 +61,7 @@ long    Span::shortestSpan()
     }
     std::vector<int> c_vec = vec;
     std::sort(c_vec.begin(), c_vec.end());
-    return std::abs(c_vec[1] - c_vec[0]);
+    return std::abs(c_vec[1]) - std::abs(c_vec[0]);
 }
 
 long    Span::longestSpan()
@@ -70,8 +70,7 @@ long    Span::longestSpan()
     {
         throw Span::NoSpanException();
     }
-    std::vector<int> c_vec = vec;
-    std::sort(c_vec.begin(), c_vec.end());
-    int last = c_vec[c_vec.size() - 1];
-    return std::abs(last - c_vec[0]);
+    std::vector<int>::iterator max = std::max_element(vec.begin(), vec.end());
+    std::vector<int>::iterator min = std::min_element(vec.begin(), vec.end());
+    return std::abs(*max - *min);
 }
