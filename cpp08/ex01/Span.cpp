@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:46:56 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/04 15:20:28 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/04 15:37:06 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <algorithm>
 
-Span::Span()
+Span::Span():n(0), vec(), size(0)
 {
     std::cout << "default constructor" << std::endl;
 }
@@ -27,7 +27,7 @@ Span::~Span()
 Span::Span(unsigned int N): n(N), vec(), size(0){}
 
 
-Span::Span(const Span &other):n(other.n), vec(other.vec), size(0){}
+Span::Span(const Span &other):n(other.n), vec(other.vec), size(other.size){}
 
 const Span &Span::operator=(const Span &other)
 {
@@ -48,6 +48,7 @@ void    Span::addNumber(int number)
     if (size == n)
     {
         throw Span::FullSpanException();
+        return;
     }
     size++;
     vec.push_back(number);
@@ -58,6 +59,7 @@ long    Span::shortestSpan()
     if (size < 2)
     {
         throw Span::NoSpanException();
+        return 0;
     }
     std::vector<int> tmp = vec;
     std::sort(tmp.begin(), tmp.end());
@@ -79,6 +81,7 @@ long    Span::longestSpan()
     if (size < 2)
     {
         throw Span::NoSpanException();
+        return 0;
     }
     std::vector<int>::iterator max = std::max_element(vec.begin(), vec.end());
     std::vector<int>::iterator min = std::min_element(vec.begin(), vec.end());
