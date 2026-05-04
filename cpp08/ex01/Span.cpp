@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:46:56 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/04 14:44:05 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/04 14:58:10 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,20 @@ long    Span::shortestSpan()
     {
         throw Span::NoSpanException();
     }
-    std::vector<int> c_vec = vec;
-    std::sort(c_vec.begin(), c_vec.end());
-    return std::abs(c_vec[1]) - std::abs(c_vec[0]);
+    size_t i = -1;
+    size_t j = 0;
+    int min = *std::max_element(vec.begin(), vec.end());;
+    while (++i < vec.size())
+    {
+        while (++j < vec.size())
+        {
+            int sub = std::abs(vec[i] - vec[j]);
+            if (sub < min)
+                min = sub;                         
+        }
+        j = i + 1;
+    }
+    return min;
 }
 
 long    Span::longestSpan()
