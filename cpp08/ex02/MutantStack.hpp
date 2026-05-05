@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:23:12 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/05 14:03:01 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/05 14:05:25 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ class MutantStack
 {
     private:
         std::vector<T> stack;
-        int            size;
+        int            left_space;
     public:
         MutantStack();
         MutantStack(int initial_size);
