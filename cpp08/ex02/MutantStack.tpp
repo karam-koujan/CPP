@@ -6,22 +6,22 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:33:48 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/05 14:01:04 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/05 14:04:08 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 
 template <typename T>
-MutantStack<T>::MutantStack()
+MutantStack<T>::MutantStack():stack(),size(0)
 {}
 
 template <typename T>
-MutantStack<T>::MutantStack(int initial_size): stack(initial_size)
+MutantStack<T>::MutantStack(int initial_size): stack(initial_size), size(0)
 {}
 
 template <typename T>
-MutantStack<T>::MutantStack(const MutantStack<T> &other): stack(other.stack)
+MutantStack<T>::MutantStack(const MutantStack<T> &other): stack(other.stack), size(other.size)
 {}
 
 template <typename T>
@@ -30,6 +30,7 @@ MutantStack<T> &MutantStack<T>::MutantStack::operator=(const MutantStack<T> &oth
     if (this != &other)
     {
         this->stack = other->stack;
+        this->stack = other->size;
     }
     return *this;
 }
