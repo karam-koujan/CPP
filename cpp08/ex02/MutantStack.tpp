@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:33:48 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/05 14:13:44 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/23 08:49:04 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,33 @@ template <typename T>
 void    MutantStack<T>::push(T element)
 {
         stack.push_back(element);
+}
+
+template <typename T>
+void    MutantStack<T>::pop()
+{
+    if (!this->empty())
+        stack.pop_back();
+}
+
+template <typename T>
+size_t    MutantStack<T>::size()
+{
+    return stack.size();
+}
+
+template <typename T>
+T    MutantStack<T>::top()
+{
+    return stack.back();
+}
+
+template <typename T>
+bool    MutantStack<T>::empty()
+{
+    if (stack.size() != 0)
+    {
+        return false;
+    }
+    return true;
 }
