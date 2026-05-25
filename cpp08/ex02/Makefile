@@ -6,7 +6,7 @@
 #    By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/05 13:10:50 by kkoujan           #+#    #+#              #
-#    Updated: 2026/05/05 13:11:32 by kkoujan          ###   ########.fr        #
+#    Updated: 2026/05/25 11:24:47 by kkoujan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ all : $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-%.o:%.cpp MutantStack.hpp
+%.o:%.cpp MutantStack.hpp MutantStack.tpp
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean : $(OBJ)

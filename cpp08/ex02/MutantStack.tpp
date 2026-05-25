@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:33:48 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/25 10:55:24 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/25 11:25:26 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end() {
     return this->c.end();
 }
 
-// Const Iterators
 template <typename T, typename Container>
 typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::begin() const {
     return this->c.begin();
@@ -52,7 +51,6 @@ typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::en
     return this->c.end();
 }
 
-// Reverse Iterators
 template <typename T, typename Container>
 typename MutantStack<T, Container>::reverse_iterator MutantStack<T, Container>::rbegin() {
     return this->c.rbegin();
@@ -63,7 +61,6 @@ typename MutantStack<T, Container>::reverse_iterator MutantStack<T, Container>::
     return this->c.rend();
 }
 
-// Const Reverse Iterators
 template <typename T, typename Container>
 typename MutantStack<T, Container>::const_reverse_iterator MutantStack<T, Container>::rbegin() const {
     return this->c.rbegin();

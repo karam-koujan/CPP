@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 08:50:31 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/25 11:01:46 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/25 11:24:16 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main() {
 
     ++it;
     --it;
-    std::cout << "Iterating through MutantStack contents:" << std::endl;
+    std::cout << "iterating through MutantStack contents:" << std::endl;
     while (it != ite) {
         std::cout << *it << std::endl;
         ++it;
@@ -45,7 +45,7 @@ int main() {
     // Testing compatibility with standard stack construction
     std::stack<int> s(mstack);
 
-    std::cout << "Test on List" << std::endl;
+    std::cout << "test on list" << std::endl;
     std::list<int> mlist;
 
     mlist.push_back(5);
