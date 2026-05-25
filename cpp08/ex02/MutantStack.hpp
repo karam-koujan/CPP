@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:23:12 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/23 09:38:34 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/25 10:58:17 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,15 @@ public:
     MutantStack(const MutantStack& other);
     MutantStack& operator=(const MutantStack& other);
     virtual ~MutantStack();
-
-    // Iterator Type Definitions (Nicknames mapped from the container)
-    typedef typename Container::iterator iterator;
-    typedef typename Container::const_iterator const_iterator;
-    typedef typename Container::reverse_iterator reverse_iterator;
-    typedef typename Container::const_reverse_iterator const_reverse_iterator;
-
-    // Member function declarations
-    iterator begin();
-    iterator end();
-
-    const_iterator begin() const;
-    const_iterator end() const;
-
-    reverse_iterator rbegin();
-    reverse_iterator rend();
-
-    const_reverse_iterator rbegin() const;
-    const_reverse_iterator rend() const;
+    
+    typename MutantStack<T, Container>::iterator begin();
+    typename MutantStack<T, Container>::iterator end();
+    typename MutantStack<T, Container>::const_iterator begin() const;
+    typename MutantStack<T, Container>::const_iterator end() const;
+    typename MutantStack<T, Container>::reverse_iterator rbegin();
+    typename MutantStack<T, Container>::reverse_iterator rend();
+    typename MutantStack<T, Container>::const_reverse_iterator rbegin() const;
+    typename MutantStack<T, Container>::const_reverse_iterator rend() const;
 };
 
 // Include the implementation file at the bottom of the header

@@ -6,22 +6,20 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:33:48 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/23 09:36:53 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/25 10:55:24 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_TPP
 #define MUTANTSTACK_TPP
 #include "MutantStack.hpp"
-// Default Constructor
+
 template <typename T, typename Container>
 MutantStack<T, Container>::MutantStack() : std::stack<T, Container>() {}
 
-// Copy Constructor
 template <typename T, typename Container>
 MutantStack<T, Container>::MutantStack(const MutantStack& other) : std::stack<T, Container>(other) {}
 
-// Assignment Operator
 template <typename T, typename Container>
 MutantStack<T, Container>& MutantStack<T, Container>::operator=(const MutantStack& other) {
     if (this != &other) {
@@ -30,11 +28,9 @@ MutantStack<T, Container>& MutantStack<T, Container>::operator=(const MutantStac
     return *this;
 }
 
-// Destructor
 template <typename T, typename Container>
 MutantStack<T, Container>::~MutantStack() {}
 
-// Standard Iterators
 template <typename T, typename Container>
 typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin() {
     return this->c.begin();

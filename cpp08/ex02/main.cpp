@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 08:50:31 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/23 09:34:46 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/25 11:01:46 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 #include "MutantStack.hpp"
 
 int main() {
-    std::cout << "================ MUTANTSTACK TEST ================" << std::endl;
     MutantStack<int> mstack;
 
     mstack.push(5);
     mstack.push(17);
 
-    std::cout << "Top element: " << mstack.top() << std::endl;
+    std::cout << "top element: " << mstack.top() << std::endl;
 
     mstack.pop();
 
-    std::cout << "Stack size after pop: " << mstack.size() << std::endl;
+    std::cout << "stack size after pop: " << mstack.size() << std::endl;
 
     mstack.push(3);
     mstack.push(5);
@@ -46,17 +45,17 @@ int main() {
     // Testing compatibility with standard stack construction
     std::stack<int> s(mstack);
 
-    std::cout << "\n================ STD::LIST COMPARISON ================" << std::endl;
+    std::cout << "Test on List" << std::endl;
     std::list<int> mlist;
 
     mlist.push_back(5);
     mlist.push_back(17);
 
-    std::cout << "Back element: " << mlist.back() << std::endl;
+    std::cout << "back element: " << mlist.back() << std::endl;
 
     mlist.pop_back();
 
-    std::cout << "List size after pop: " << mlist.size() << std::endl;
+    std::cout << "list size after pop: " << mlist.size() << std::endl;
 
     mlist.push_back(3);
     mlist.push_back(5);
@@ -68,7 +67,7 @@ int main() {
 
     ++lit;
     --lit;
-    std::cout << "Iterating through std::list contents:" << std::endl;
+    std::cout << "iterating through std::list contents:" << std::endl;
     while (lit != lite) {
         std::cout << *lit << std::endl;
         ++lit;
