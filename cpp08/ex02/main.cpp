@@ -6,13 +6,14 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 08:50:31 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/25 11:24:16 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/25 11:32:55 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <list>
 #include "MutantStack.hpp"
+
 
 int main() {
     MutantStack<int> mstack;
@@ -44,34 +45,6 @@ int main() {
     
     // Testing compatibility with standard stack construction
     std::stack<int> s(mstack);
-
-    std::cout << "test on list" << std::endl;
-    std::list<int> mlist;
-
-    mlist.push_back(5);
-    mlist.push_back(17);
-
-    std::cout << "back element: " << mlist.back() << std::endl;
-
-    mlist.pop_back();
-
-    std::cout << "list size after pop: " << mlist.size() << std::endl;
-
-    mlist.push_back(3);
-    mlist.push_back(5);
-    mlist.push_back(737);
-    mlist.push_back(0);
-
-    std::list<int>::iterator lit = mlist.begin();
-    std::list<int>::iterator lite = mlist.end();
-
-    ++lit;
-    --lit;
-    std::cout << "iterating through std::list contents:" << std::endl;
-    while (lit != lite) {
-        std::cout << *lit << std::endl;
-        ++lit;
-    }
 
     return 0;
 }
