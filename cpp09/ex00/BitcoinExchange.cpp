@@ -6,20 +6,19 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:19:13 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 10:43:27 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 11:04:38 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 
-void    print_err(std::string msg)
-{
-    std::cerr << "Error: " << msg << std::endl;
-}
 
 
-int read_csv(std::string filename, std::map<std::string, float> btc_db)
+#include "BitcoinExchange.hpp"
+
+// Default Constructor
+BitcoinExchange::BitcoinExchange() 
 {
     std::ifstream  inFile(filename);
     if (!inFile.is_open())
@@ -38,10 +37,34 @@ int read_csv(std::string filename, std::map<std::string, float> btc_db)
         if (std::getline(lineStream, key, ',')) {
             
             std::getline(lineStream, value);
-            std::cout << "Key:   [" << key << "]\n";
-            std::cout << "Value: [" << value << "]\n";
-            std::cout << "---------------------\n";
+            data_db[key] = value;
         }
     }
-    return 0;
+}
+
+BitcoinExchange::~BitcoinExchange() 
+{}
+
+// Copy Constructor
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) 
+{
+    *this = other;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) 
+{
+    if (this != &other) 
+    {
+        this->data_db = other.data_db;
+    }
+    
+    // 3. Return the existing object to allow chaining (e.g., a = b = c)
+    return *this;
+}
+
+
+
+void    print_err(std::string msg)
+{
+    std::cerr << "Error: " << msg << std::endl;
 }
