@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:19:13 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 11:31:11 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 11:36:22 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,36 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
     return *this;
 }
 
+
+void   BitcoinExchange::process_input(const std::string &filename)
+{
+    std::ifstream  inFile(filename);
+    if (!inFile.is_open())
+    {
+        throw std::runtime_error("Error: could not open file " + filename);
+    }
+    std::string line;
+    while (std::getline(inFile, line))
+    {
+        if (line.empty()) continue;
+        std::stringstream lineStream(line);
+        std::string key;
+        std::string value;
+        if (std::getline(lineStream, key, '|')) {
+            
+            if (!std::getline(lineStream, value))
+            {
+                print_err("not a positive number");
+                continue;
+            }
+            std::stringstream vs(value);
+            float vf;
+            vs >> vf;
+            data_db[key] = vf;            
+        }
+    }
+    inFile.close();  
+}
 
 
 void    print_err(std::string msg)
