@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:19:13 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 13:19:09 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 13:32:18 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,9 +139,25 @@ void   BitcoinExchange::process_input(const std::string &filename)
     inFile.close();  
 }
 
-void    BitcoinExchange::calculate_exchange(std::string &date, float key)
+void    BitcoinExchange::calculate_exchange(std::string &date, float value)
 {
-    
+std::map<std::string, float>::iterator it = data_db.lower_bound(date);
+
+    if (it != data_db.end() && it->first == date)
+    {
+        float exchange_rate = it->second;
+        std::cout << date << " => " << value << " = " << (value * exchange_rate) << std::endl;
+    }
+    else if (it != data_db.begin())
+    {
+        --it;
+        float exchange_rate = it->second;
+        std::cout << date << " => " << value << " = " << (value * exchange_rate) << std::endl;
+    }
+    else
+    {
+        print_err("date not found and no previous date available for");
+    }
 }
 
 void    print_err(std::string msg)

@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:20:22 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 13:09:39 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 13:29:37 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class BitcoinExchange
         BitcoinExchange &operator=(const BitcoinExchange &other);
         std::map<std::string, float> get_data_db() const;
         void    process_input(const std::string &filename);
-        void    calculate_exchange(std::string &date, float key);
+        void    calculate_exchange(std::string &date, float value);
 };
 
 
