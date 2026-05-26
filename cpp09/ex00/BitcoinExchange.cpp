@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:19:13 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 13:13:25 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 13:19:09 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,17 +123,26 @@ void   BitcoinExchange::process_input(const std::string &filename)
             if (vf > 1000.0f)
             {
                 print_err("too large number");
+                file_offset++;
+                continue;
             }
             if (vf < 0.0f)
             {
                 print_err("not a positive number");
+                file_offset++;
+                continue;
             }
+            this->calculate_exchange(key,vf);
         }
         file_offset++;
     }
     inFile.close();  
 }
 
+void    BitcoinExchange::calculate_exchange(std::string &date, float key)
+{
+    
+}
 
 void    print_err(std::string msg)
 {
