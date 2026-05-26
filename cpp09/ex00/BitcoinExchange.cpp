@@ -6,14 +6,9 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:19:13 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 13:05:24 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 13:13:25 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "BitcoinExchange.hpp"
-
-
-
 
 #include "BitcoinExchange.hpp"
 
@@ -48,7 +43,6 @@ BitcoinExchange::BitcoinExchange()
 BitcoinExchange::~BitcoinExchange() 
 {}
 
-// Copy Constructor
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) 
 {
     *this = other;
@@ -61,7 +55,6 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
         this->data_db = other.data_db;
     }
     
-    // 3. Return the existing object to allow chaining (e.g., a = b = c)
     return *this;
 }
 
@@ -120,14 +113,21 @@ void   BitcoinExchange::process_input(const std::string &filename)
         }
         if (!isValidDate(key))
         {
-            print_err("invalid date");
+            print_err("bad input => " + key);
             file_offset++;
             continue;
         }
             std::stringstream vs(value);
             float vf;
             vs >> vf;
-            data_db[key] = vf;            
+            if (vf > 1000.0f)
+            {
+                print_err("too large number");
+            }
+            if (vf < 0.0f)
+            {
+                print_err("not a positive number");
+            }
         }
         file_offset++;
     }
