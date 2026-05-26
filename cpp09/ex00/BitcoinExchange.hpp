@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:20:22 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 11:33:27 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 11:57:46 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
+#include <cstdlib>
+
 
 class BitcoinExchange
 {

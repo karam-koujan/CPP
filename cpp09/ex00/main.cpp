@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:16:00 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 11:25:42 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 12:02:42 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int main(int ac, char **av)
     try
     {
         BitcoinExchange bex("data.csv");
+        bex.process_input(av[1]);
     }
     catch(std::exception &e)
     {
         std::cerr << e.what() << std::endl;
         return 1;
     }
-    (void)av;
 }

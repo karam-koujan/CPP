@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:19:13 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 11:47:50 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 12:11:42 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,29 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
     return *this;
 }
 
+bool isValidDate(std::string &date)
+{
+    if (date[4] != '-' || date[4] != '-' ) return false;
+
+    int i = 0;
+    int size=0;
+    while (i < 10)
+    {
+        if (isdigit(date[i]))
+        {
+            size++;
+        }
+        if (i == 4 || i == 7){
+          i++;
+          size++;
+          continue;   
+        }
+        if (!isdigit(date[i]) && !isspace(date[i])) return false;
+        i++; 
+    }
+    if (size != 10)  return false;
+    return true;
+}
 
 void   BitcoinExchange::process_input(const std::string &filename)
 {
@@ -74,29 +97,39 @@ void   BitcoinExchange::process_input(const std::string &filename)
         throw std::runtime_error("Error: could not open file " + filename);
     }
     std::string line;
+    int file_offset = 0;
     while (std::getline(inFile, line))
     {
         if (line.empty()) continue;
         std::stringstream lineStream(line);
         std::string key;
-        if (!isValidDate())
-        {
-            print_err("invalid date");
-            continue;
-        }
+
         std::string value;
         if (std::getline(lineStream, key, '|')) {
             
             if (!std::getline(lineStream, value))
             {
-                print_err("not a positive number");
+                print_err("empty value");
                 continue;
             }
+        if (file_offset == 0 && value != "value" && key != "data")
+        {
+                print_err("the input file should starte with date | value");
+                file_offset++;
+                continue ;
+                
+        }
+        if (!isValidDate(key))
+        {
+            print_err("invalid date");
+            continue;
+        }
             std::stringstream vs(value);
             float vf;
             vs >> vf;
             data_db[key] = vf;            
         }
+        file_offset++;
     }
     inFile.close();  
 }
