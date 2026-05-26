@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:19:13 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 11:04:38 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 11:23:06 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,33 @@
 
 #include "BitcoinExchange.hpp"
 
-// Default Constructor
-BitcoinExchange::BitcoinExchange() 
+BitcoinExchange::BitcoinExchange(const std::string &filename) 
 {
     std::ifstream  inFile(filename);
     if (!inFile.is_open())
     {
-        print_err("cannot read file");
-        return 1;
+        throw std::runtime_error("Error: could not open file " + filename);
     }
     std::string line;
-    while (!std::getline(inFile))
+    while (!std::getline(inFile, line))
     {
         if (line.empty()) continue;
-        line << inFile;
         std::stringstream lineStream(line);
         std::string key;
         std::string value;
         if (std::getline(lineStream, key, ',')) {
             
             std::getline(lineStream, value);
-            data_db[key] = value;
+            std::stringstream vs(value);
+            float vf;
+            vs >> vf;
+            data_db[key] = vf;
         }
     }
 }
 
+BitcoinExchange::BitcoinExchange() 
+{}
 BitcoinExchange::~BitcoinExchange() 
 {}
 

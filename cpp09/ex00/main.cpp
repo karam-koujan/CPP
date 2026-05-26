@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:16:00 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 10:25:35 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 11:24:14 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@ int main(int ac, char **av)
     if (ac != 2)
     {
         print_err("could not open file.");
+        return 1;
+    }
+    try
+    {
+        BitcoinExchange bex("dasta.csv");
+    }
+    catch(std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
         return 1;
     }
     (void)av;

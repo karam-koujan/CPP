@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:20:22 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 11:01:49 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 11:19:42 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <map>
 #include <fstream>
 #include <sstream>
+#include <stdexcept>
 
 class BitcoinExchange
 {
@@ -27,10 +28,11 @@ class BitcoinExchange
     public :
         BitcoinExchange();
        ~BitcoinExchange();
-        BitcoinExchange(BitcoinExchange &other);
-        BitcoinExchange &operator=(BitcoinExchange &other);
+        BitcoinExchange(const std::string &filename);
+        BitcoinExchange(const BitcoinExchange &other);
+        BitcoinExchange &operator=(const BitcoinExchange &other);
         std::map<std::string, float> get_data_db() const;
-}
+};
 
 
 void    print_err(std::string msg);
