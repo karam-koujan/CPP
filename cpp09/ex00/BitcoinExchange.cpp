@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:19:13 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 13:01:59 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 13:05:24 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
 bool isValidDate(std::string &date)
 {
     if (date[4] != '-' || date[4] != '-' ) return false;
-    int i = 0;
+    size_t i = 0;
     int size=0;
-    while (i < 10)
+    while (i < date.length())
     {
         if (isdigit(date[i]))
         {
