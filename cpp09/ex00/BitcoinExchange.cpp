@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:19:13 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 11:23:06 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 11:31:11 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ BitcoinExchange::BitcoinExchange(const std::string &filename)
         throw std::runtime_error("Error: could not open file " + filename);
     }
     std::string line;
-    while (!std::getline(inFile, line))
+    while (std::getline(inFile, line))
     {
         if (line.empty()) continue;
         std::stringstream lineStream(line);
@@ -37,9 +37,10 @@ BitcoinExchange::BitcoinExchange(const std::string &filename)
             std::stringstream vs(value);
             float vf;
             vs >> vf;
-            data_db[key] = vf;
+            data_db[key] = vf;            
         }
     }
+    inFile.close();
 }
 
 BitcoinExchange::BitcoinExchange() 
