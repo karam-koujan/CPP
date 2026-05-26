@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:19:13 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 12:13:49 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 12:55:16 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 BitcoinExchange::BitcoinExchange(const std::string &filename) 
 {
-    std::ifstream  inFile(filename);
+    std::ifstream  inFile(filename.c_str());
     if (!inFile.is_open())
     {
         throw std::runtime_error("Error: could not open file " + filename);
@@ -90,7 +90,7 @@ bool isValidDate(std::string &date)
 
 void   BitcoinExchange::process_input(const std::string &filename)
 {
-    std::ifstream  inFile(filename);
+    std::ifstream  inFile(filename.c_str());
     if (!inFile.is_open())
     {
         throw std::runtime_error("Error: could not open file " + filename);
@@ -111,9 +111,9 @@ void   BitcoinExchange::process_input(const std::string &filename)
                 print_err("empty value");
                 continue;
             }
-        if (file_offset == 0 && value != "value" && key != "data")
+        if (file_offset == 0 && value != " value" && key != "date ")
         {
-                print_err("the input file should starte with date | value");
+                print_err("the input file should start with date | value");
                 file_offset++;
                 continue ;
                 
