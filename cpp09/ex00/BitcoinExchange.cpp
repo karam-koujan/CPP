@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 10:19:13 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/26 12:55:16 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/26 13:01:59 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ void   BitcoinExchange::process_input(const std::string &filename)
         if (!isValidDate(key))
         {
             print_err("invalid date");
+            file_offset++;
             continue;
         }
             std::stringstream vs(value);
