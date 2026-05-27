@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 06:46:02 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/27 06:48:25 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/27 07:15:14 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int main(int ac, char **av)
         std::cerr << "the program should have one argument" << std::endl;
         return 1;
     }
-    
+    RPN R;
+    std::cout << R.calculation(av[1]) << std::endl
 }
