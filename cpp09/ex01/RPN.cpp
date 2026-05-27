@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 06:32:15 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/27 06:43:33 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/27 06:51:44 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,8 @@ RPN &operator=(const RPN &other) {
     return *this;
 }
 
+
+int    RPN::calculation(std::string &sequence)
+{
+    
+}
