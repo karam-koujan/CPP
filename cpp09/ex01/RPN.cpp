@@ -6,9 +6,11 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 06:32:15 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/27 06:51:44 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/27 06:58:33 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "RPN.hpp"
 
 RPN() {}
 ~RPN() {}
@@ -24,5 +26,13 @@ RPN &operator=(const RPN &other) {
 
 int    RPN::calculation(std::string &sequence)
 {
-    
+    if (sequence.length() <= 2)
+    {
+        throw std::runtime_exception("the sequence length should have more than 2 elements");
+    }
+    int i = 0;
+    while (i < sequence.length())
+    {
+        i++;
+    }
 }
