@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 06:32:15 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/27 07:14:23 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/27 07:18:02 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int    RPN::calculation(std::string &sequence)
     int i = 0;
     while (i < sequence.length())
     {
-        if ((sequence[i] == '+' || sequence[i] == '-' || sequence[i] == '/' || sequence[i] == '*') && stack.size() == 0)
+        if ((sequence[i] == '+' || sequence[i] == '-' || sequence[i] == '/' || sequence[i] == '*') && s.size() == 0)
         {
             throw std::runtime_exception("no operands");            
         }
@@ -45,7 +45,7 @@ int    RPN::calculation(std::string &sequence)
         {
             throw std::runtime_exception("the number should be less than 10");                 
         }
-        if ((sequence[i] == '+' || sequence[i] == '-' || sequence[i] == '/' || sequence[i] == '*') && stack.size() == 1)
+        if ((sequence[i] == '+' || sequence[i] == '-' || sequence[i] == '/' || sequence[i] == '*') && s.size() == 1)
         {
             return stack.top();
         }

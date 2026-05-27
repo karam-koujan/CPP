@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 06:32:12 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/27 07:02:54 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/27 07:16:58 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 #include <stack>
 #include <string>
-#include <stdexception>
+#include <exception>
 #include <cstdlib>
+#include <iostream>
 class RPN
 {
     private :
@@ -27,6 +28,6 @@ class RPN
         RPN(const RPN &other);
         RPN &operator=(const RPN &other);
         int calculation(std::string &sequence);
-}
+};
 
 #endif
