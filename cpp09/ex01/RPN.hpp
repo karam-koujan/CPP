@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 06:32:12 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/28 05:33:25 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/28 06:37:22 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class RPN
 {
     private :
         std::stack<int> s;
+        bool op_flag;
     public :
         RPN();
         ~RPN();

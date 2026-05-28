@@ -6,29 +6,36 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 06:32:15 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/28 06:18:38 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/28 06:40:53 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-RPN::RPN() {}
+RPN::RPN() {
+    op_flag = false;
+}
 RPN::~RPN() {}
-RPN::RPN(const RPN &other) : s(other.s) {}
+RPN::RPN(const RPN &other) : s(other.s) ,op_flag(other.op_flag) {}
 
 RPN &RPN::operator=(const RPN &other) {
     if (this != &other) {
         this->s = other.s;
+        this->op_flag = other.op_flag;
     }
     return *this;
 }
 
 void   RPN::do_operation(char op)
 {
+    if (s.size() < 2) {
+        throw std::runtime_error("too many operands remaining on stack");
+    }
     int b = s.top();
     s.pop();
     int a = s.top();
     s.pop();
+    op_flag = true;
     switch(op)
     {
         case '+':
@@ -38,6 +45,7 @@ void   RPN::do_operation(char op)
             s.push(a * b);
             break;
         case '/':
+            if (b == 0) throw std::runtime_error("division by zero");
             s.push(a / b);
             break;
         case '-':
@@ -49,10 +57,6 @@ void   RPN::do_operation(char op)
 }
 int    RPN::calculation(std::string &sequence)
 {
-    if (sequence.length() <= 2)
-    {
-        throw std::runtime_error("the sequence length should have more than 2 elements");
-    }
     size_t i = -1;
     while (++i < sequence.length())
     {
@@ -61,8 +65,7 @@ int    RPN::calculation(std::string &sequence)
         {
             if (s.size() == 0)
                 throw std::runtime_error("no operands");
-            if (s.size() == 1)
-                throw std::runtime_error("Invalid expression: too many operands remaining on stack");
+  
             this->do_operation(sequence[i]);
             continue;
         }
@@ -76,8 +79,8 @@ int    RPN::calculation(std::string &sequence)
         }
         s.push(sequence[i] - '0');
     }
-    if (s.size() != 1) {
-        throw std::runtime_error("too many operands remaining on stack");
+    if (s.size() != 1 || !op_flag) {
+        throw std::runtime_error("Error");
     }
     return s.top();
 }
