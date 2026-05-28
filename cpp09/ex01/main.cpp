@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 06:46:02 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/27 07:17:42 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/28 05:52:43 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,13 @@ int main(int ac, char **av)
     }
     RPN R;
     std::string seq = av[1];
-    std::cout << R.calculation(seq) << std::endl;
+    try
+    {
+        int result = R.calculation(seq);
+        std::cout << result << std::endl;        
+    }catch(std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+        return 1;
+    }
 }
