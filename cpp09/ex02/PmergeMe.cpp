@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/02 11:46:23 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/02 12:07:28 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,11 @@ std::vector<int> PmergeMe::insertVector(std::vector<std::pair<int,int>> &pair) {
     size_t i = 0;
     while (i < pair.size())
     {
+        if (i == 0)
+            mainChain.push_back(pair[i].second);
+        else
+            pending.push_back(pair[i].second);   
         mainChain.push_back(pair[i].first);
-        pending.push_back(pair[i].second);   
         i++;
     }
     std::vector<size_t> jacob = this->generateJacobsthal(pending.size());
@@ -58,13 +61,15 @@ std::vector<int> PmergeMe::insertVector(std::vector<std::pair<int,int>> &pair) {
     {
         while (tmp > edge)
         {
-            int partner = pair[tmp - 1].first;
+            int partner = pair[tmp].first;
             std::vector<int>::iterator upper_bound = mainChain.end();
-            for (std::vector<int>::iterator it = mainChain.begin(); it != mainChain.end(); ++it) {
+            std::vector<int>::iterator it = mainChain.begin();
+            while ( it != mainChain.end()) {
                 if (*it == partner) {
                     upper_bound = it;
                     break;
                 }
+                ++it;
             }
             std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), upper_bound, pending[tmp - 1]);
             mainChain.insert(pos, pending[tmp - 1]);
