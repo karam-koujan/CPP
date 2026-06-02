@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/02 11:22:01 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/02 11:46:23 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,15 @@ std::vector<int> PmergeMe::insertVector(std::vector<std::pair<int,int>> &pair) {
     std::vector<size_t> jacob = this->generateJacobsthal(pending.size());
     size_t jacob_idx = 2;
     size_t limit = jacob[jacob_idx];
-     size_t edge = 0;
-
+    if (limit >= pending.size())
+        limit = pending.size();
+    size_t edge = 0;
+    size_t tmp = limit;
     while (jacob_idx < jacob.size())
     {
-        if (limit >= pending.size())
-            limit = pending.size();
-        while (limit > edge)
+        while (tmp > edge)
         {
-            int partner = pair[limit - 1].first;
+            int partner = pair[tmp - 1].first;
             std::vector<int>::iterator upper_bound = mainChain.end();
             for (std::vector<int>::iterator it = mainChain.begin(); it != mainChain.end(); ++it) {
                 if (*it == partner) {
@@ -66,15 +66,18 @@ std::vector<int> PmergeMe::insertVector(std::vector<std::pair<int,int>> &pair) {
                     break;
                 }
             }
-            std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), upper_bound, pending[limit - 1]);
-            mainChain.insert(pos, pending[limit - 1]);
-           limit--;
-        } 
-        jacob_idx++;
-        edge = limit;
-i       if (jacob_idx < jacob.size())
-            limit = jacob[jacob_idx];        
+            std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), upper_bound, pending[tmp - 1]);
+            mainChain.insert(pos, pending[tmp - 1]);
+           tmp--;
         }
+        edge = limit; 
+        jacob_idx++;
+       if (jacob_idx < jacob.size())
+            limit = jacob[jacob_idx];
+        if (limit >= pending.size())
+            limit = pending.size();
+        tmp = limit;
+    }      
     return mainChain;
 }
 
@@ -82,7 +85,6 @@ std::vector<std::pair<int,int> > PmergeMe::sortVectorPair(std::vector<std::pair<
     if (pair.size() <= 1) 
         return pair;
 
-    // Extract the winners (.first elements) to sort them recursively
     std::vector<int> winners;
     for (size_t i = 0; i < pair.size(); ++i) {
         winners.push_back(pair[i].first);
@@ -92,14 +94,22 @@ std::vector<std::pair<int,int> > PmergeMe::sortVectorPair(std::vector<std::pair<
 
     std::vector<std::pair<int,int> > sortedPairs;
     std::vector<bool> used(pair.size(), false);
-    for (size_t i = 0; i < winners.size(); ++i) {
-        for (size_t j = 0; j < pair.size(); ++j) {
-            if (!used[j] && pair[j].first == winners[i]) {
-                sortedPairs.push_back(pair[j]);
+    size_t i = 0;
+    size_t j = 0;
+    while (i < winners.size())
+    {
+        while (j < pair.size())
+        {
+            if (!used[j] && winners[i] == pair[j].first)
+            {
+                sortedPairs.push_back(std::make_pair(pair[j].first, pair[j].second));
                 used[j] = true;
                 break;
             }
+            j++;
         }
+        j = 0;
+        i++;
     }
     return sortedPairs;
 }
