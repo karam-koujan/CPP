@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/02 12:07:28 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/02 12:22:30 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,9 +156,14 @@ void PmergeMe::insertDeque(std::deque<int>& mainChain, std::deque<int>& pending)
    
 }
 
-void PmergeMe::sortDeque(std::deque<int>& arr) {
+void PmergeMe::sortDequePair(std::deque<int>& arr) {
     
    
+}
+
+
+void PmergeMe::sortDeque(std::deque<int>& arr) {
+    
 }
 
 // ---- Execution and Display ----
