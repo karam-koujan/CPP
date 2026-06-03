@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:04:58 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/03 09:49:45 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/03 10:23:30 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,19 @@ public:
     PmergeMe(const PmergeMe& other);
     PmergeMe& operator=(const PmergeMe& other);
     
-    void parseInput(int argc, char** argv);
-    std::vector<int> sortVector(std::vector<int>& arr);
-    std::vector<std::pair<int,int> > PmergeMe::sortVectorPair(std::vector<std::pair<int,int> > &pair);
-    std::vector<int>& insertVector(std::vector<std::pair<int,int>> pair);
+    // void parseInput(int argc, char** argv);
+    void sortVector(std::vector<int>& arr);
+    std::vector<std::pair<int,int> > sortVectorPair(std::vector<std::pair<int,int> > &pair);
+    std::vector<int> insertVector(std::vector<std::pair<int,int> > &pair);
     
     void sortDeque(std::deque<int>& arr);
-    std::vector<int>& insertDeque(std::deque<std::pair<int,int>> pair);
-    std::vector<std::pair<int,int> > PmergeMe::sortDequePair(std::deque<std::pair<int,int> > &pair);
+    std::deque<int> insertDeque(std::deque<std::pair<int,int> > &pair);
+    std::deque<std::pair<int,int> > sortDequePair(std::deque<std::pair<int,int> > &pair);
 
     std::vector<size_t> generateJacobsthalVector(size_t n);
-    std::deque<size_t>  generateJacobsthalDeque(size_t n)
-    void execute();
-    void printVector(const std::string& prefix, const std::vector<int>& vec) const;
+    std::deque<size_t>  generateJacobsthalDeque(size_t n);
+   // void execute();
+  //  void printVector(const std::string& prefix, const std::vector<int>& vec) const;
 };
 
 #endif

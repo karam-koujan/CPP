@@ -6,14 +6,14 @@
 #    By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/01 10:06:47 by kkoujan           #+#    #+#              #
-#    Updated: 2026/06/01 10:07:14 by kkoujan          ###   ########.fr        #
+#    Updated: 2026/06/03 10:24:00 by kkoujan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98 -g
 NAME = RPN
-OBJ = main.o main.o PmergeMe.o 
+OBJ = main.o PmergeMe.o 
 
 all : $(NAME)
 
