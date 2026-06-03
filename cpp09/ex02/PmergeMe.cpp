@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/03 10:45:05 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/03 11:07:01 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ std::vector<size_t> PmergeMe::generateJacobsthalVector(size_t n) {
     jacob.push_back(0);
     jacob.push_back(1);
 
-    while (jacob.back() < n || jacob.size() < 5)
+    while (jacob.back() < n)
     {
         jacob.push_back(jacob.back() + (2 * jacob[jacob.size() - 2]));
     }
@@ -68,6 +68,8 @@ std::vector<int> PmergeMe::insertVector(std::vector<std::pair<int,int> > &pair) 
         i++;
     }
     std::vector<size_t> jacob = this->generateJacobsthalVector(pending.size());
+    if (jacob.size() <= 2)
+        return mainChain;
     size_t jacob_idx = 2;
     size_t limit = jacob[jacob_idx];
     if (limit >= pending.size())
@@ -187,6 +189,8 @@ std::deque<int> PmergeMe::insertDeque(std::deque<std::pair<int,int> > &pair) {
         i++;
    }
    std::deque<size_t> jacob = this->generateJacobsthalDeque(pending.size());
+    if (jacob.size() <= 2)
+        return mainChain;
    size_t jacob_idx = 2;
    size_t limit = jacob[jacob_idx];
    if (limit >= pending.size())
