@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/03 09:31:28 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/03 09:49:54 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,40 @@
 
 PmergeMe::PmergeMe() {}
 PmergeMe::~PmergeMe() {}
+PmergeMe::PmergeMe(const PmergeMe& other) {
+    *this = other;
+}
 
+PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
+    if (this != &rhs) { t
+        this->_vec = other._vec;
+        this->_deq = other._deq;
+    }
+    return *this;
+}
 void PmergeMe::parseInput(int argc, char** argv) {
   
 }
 
-std::vector<size_t> PmergeMe::generateJacobsthal(size_t n) {
+std::vector<size_t> PmergeMe::generateJacobsthalVector(size_t n) {
     std::vector<size_t> jacob;
+    jacob.push_back(0);
+    if (n == 1)
+        return jacob;
+    jacob.push_back(1);
+    if (n == 2)
+        return jacob;    
+    size_t i = 1;
+    while (i < n - 1)
+    {
+        jacob.push_back(jacob[i] + (2 * jacob[i - 1]));
+        i++;
+    }
+    return jacob;
+}
+
+std::deque<size_t> PmergeMe::generateJacobsthalDeque(size_t n) {
+    std::deque<size_t> jacob;
     jacob.push_back(0);
     if (n == 1)
         return jacob;
