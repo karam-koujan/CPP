@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/03 10:39:04 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/03 10:45:05 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,20 +239,20 @@ std::deque<std::pair<int,int> >  PmergeMe::sortDequePair(std::deque<std::pair<in
     std::deque<bool> used(pair.size(),false);
     i = 0;
     size_t j = 0;
-    while (i < pair.size())
+    while (i < winners.size())
     {
-        while (j < winners.size())
+        while (j < pair.size())
         {
-            if (!used[j] && pair[i].first == winners[j])
+            if (!used[j] && winners[i] == pair[j].first)
             {
-                 sorted_pair.push_back(pair[i]);
-                 used[j] = true;
-                 break;
+                sorted_pair.push_back(pair[j]);
+                used[j] = true;
+                break;
             }
             j++;
         }
         j = 0;
-        i++; 
+        i++;
     }
     return sorted_pair;
 }

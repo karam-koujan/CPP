@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:42 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/03 10:40:49 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/03 10:46:42 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
     }
     (void)argv;
     PmergeMe merge;
-    std::vector<int> arr;
+    std::deque<int> arr;
     arr.push_back(15);
     arr.push_back(0);
     arr.push_back(1000);
@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
     arr.push_back(1);
 
     
-    merge.sortVector(arr);
+    merge.sortDeque(arr);
     for(size_t i = 0; i < arr.size(); ++i)
     {
         std::cout << arr[i] << " ";
