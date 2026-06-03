@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/02 12:22:30 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/03 08:52:15 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,17 +152,75 @@ void PmergeMe::sortVector(std::vector<int>& arr) {
 
 // ---- Deque Implementation ----
 
-void PmergeMe::insertDeque(std::deque<int>& mainChain, std::deque<int>& pending) {
-   
+std::deque<int> PmergeMe::insertDeque(std::deque<std::pair<int,int>> &pair) {
+   std::deque<int> mainChain;
+   std::deque<int> pending;
+   size_t i = 1;
+   mainChain.push_back(pair[0].second);
+   mainChain.push_back(pair[0].first);
+   while (i < pair.size())
+   {
+        mainChain.push_back(pair[i].first);
+        pending.push_back(pair[i].second);
+        i++;
+   }
+   std::vector<int> jacob = generateJacobsthal(pending.size());
+   size_t jacob_idx = 2;
+   size_t limit = jacob[jacob_idx];
+   if (limit >= pending.size())
+        limit = pending.size() - 1;
+   size_t tmp = limit;
+   size_t edge = 0;
+   while (tmp > edge)
+   {
+    
+   }
 }
 
-void PmergeMe::sortDequePair(std::deque<int>& arr) {
-    
-   
+std::deque<std::pair<int,int>>  PmergeMe::sortDequePair(std::deque<std::pair<int,int>> &pair) {
+    std::deque<int> winners;
+    size_t i = 0;
+    while (i < pair.size())
+    {
+        p.push_back(pair[i].first);
+        i++;
+    }
+    this->sortDeque(winners);
+    std::deque<std::pair<int,int>> sorted_pair;
+    bool used(pair.size(),false);
+    i = 0;
+    size_t j = 0;
+    while (i < pair.size())
+    {
+        while (j < winners.size())
+        {
+            if (!used[j] && pair[i].first == winners[j])
+            {
+                 sorted_pair.push_back(pair[i]);
+                 used[j] = true;
+                 break;
+            }
+            j++;
+        }
+        j = 0;
+        i++; 
+    }
 }
 
 
 void PmergeMe::sortDeque(std::deque<int>& arr) {
+    // make pairs
+    if (arr.size() <= 1) return;
+    std::deque<std::pair<int,int>> p;
+    size_t i = 0;
+    while (i < arr.size())
+    {
+        if (arr[i] > arr[i+1])
+            p.push_back(std::make_pair(arr[i], arr[i+1]));
+        else
+            p.push_back(std::make_pair(arr[i+1], arr[i]));
+        i = i + 2;
+    }
     
 }
 

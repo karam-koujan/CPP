@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:04:58 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/02 10:29:19 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/03 08:14:53 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ public:
     
     void parseInput(int argc, char** argv);
     std::vector<int> sortVector(std::vector<int>& arr);
+    std::vector<std::pair<int,int> > PmergeMe::sortVectorPair(std::vector<std::pair<int,int> > &pair);
     std::vector<int>& insertVector(std::vector<std::pair<int,int>> pair);
     
     void sortDeque(std::deque<int>& arr);
-    void insertDeque(std::deque<int>& mainChain, std::deque<int>& pending);
+    std::vector<int>& insertDeque(std::deque<std::pair<int,int>> pair);
+    std::vector<std::pair<int,int> > PmergeMe::sortDequePair(std::deque<std::pair<int,int> > &pair);
 
     std::vector<size_t> generateJacobsthal(size_t n);
     void execute();
