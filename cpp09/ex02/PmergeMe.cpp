@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/03 09:10:09 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/03 09:31:28 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,15 +91,18 @@ std::vector<std::pair<int,int> > PmergeMe::sortVectorPair(std::vector<std::pair<
         return pair;
 
     std::vector<int> winners;
-    for (size_t i = 0; i < pair.size(); ++i) {
+    size_t i = 0;
+    while( i < pair.size()) 
+    {
         winners.push_back(pair[i].first);
+        i++;
     }
 
     this->sortVector(winners);
 
     std::vector<std::pair<int,int> > sortedPairs;
     std::vector<bool> used(pair.size(), false);
-    size_t i = 0;
+    i = 0;
     size_t j = 0;
     while (i < winners.size())
     {
@@ -107,7 +110,7 @@ std::vector<std::pair<int,int> > PmergeMe::sortVectorPair(std::vector<std::pair<
         {
             if (!used[j] && winners[i] == pair[j].first)
             {
-                sortedPairs.push_back(std::make_pair(pair[j].first, pair[j].second));
+                sortedPairs.push_back(pair[j]);
                 used[j] = true;
                 break;
             }
@@ -141,13 +144,12 @@ void PmergeMe::sortVector(std::vector<int>& arr) {
         i = i + 2;
     }
     p = this->sortVectorPair(p);
-    std::vector<int> mainChain = this->insertVector(p) ;
+    arr = this->insertVector(p) ;
 
     if (hasEnd) {
-        std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), end);
-        mainChain.insert(pos, end);
+        std::vector<int>::iterator pos = std::lower_bound(arr.begin(), arr.end(), end);
+        arr.insert(pos, end);
     }
-    arr = mainChain;
 }
 
 // ---- Deque Implementation ----
@@ -176,7 +178,7 @@ std::deque<int> PmergeMe::insertDeque(std::deque<std::pair<int,int>> &pair) {
         while (tmp > edge)
         {
             int target = pending[tmp - 1];
-            int w_pair = mainChain[tmp];
+            int w_pair = pair[tmp].first;
             std::deque<int>::iterator it = mainChain.begin();
             while (it != mainChain.end())
             {
@@ -188,17 +190,21 @@ std::deque<int> PmergeMe::insertDeque(std::deque<std::pair<int,int>> &pair) {
             mainChain.insert(pos, target);
             tmp--;
         }
+        edge = limit;
         jacob_idx++;
         if (jacob_idx < jacob.size())
-            tmp = jacob[jacob_idx];
-        if (tmp >= pending.size())
-            tmp = pending.size();
+            limit = jacob[jacob_idx];
+        if (limit >= pending.size())
+            limit = pending.size();
+        tmp = limit;
         
    }
    return mainChain;
 }
 
 std::deque<std::pair<int,int>>  PmergeMe::sortDequePair(std::deque<std::pair<int,int>> &pair) {
+    if (pair.size() <= 1) 
+        return pair;    
     std::deque<int> winners;
     size_t i = 0;
     while (i < pair.size())
@@ -208,7 +214,7 @@ std::deque<std::pair<int,int>>  PmergeMe::sortDequePair(std::deque<std::pair<int
     }
     this->sortDeque(winners);
     std::deque<std::pair<int,int>> sorted_pair;
-    bool used(pair.size(),false);
+    std::deque<bool> used(pair.size(),false);
     i = 0;
     size_t j = 0;
     while (i < pair.size())
@@ -226,13 +232,21 @@ std::deque<std::pair<int,int>>  PmergeMe::sortDequePair(std::deque<std::pair<int
         j = 0;
         i++; 
     }
+    return sorted_pair;
 }
 
 
 void PmergeMe::sortDeque(std::deque<int>& arr) {
     if (arr.size() <= 1) return;
+    int end = -1;
+    bool hasEnd = false;
     std::deque<std::pair<int,int>> p;
     size_t i = 0;
+    if (arr.size() % 2 != 0) {
+        end = arr.back();
+        arr.pop_back();
+        hasEnd = true;
+    }
     while (i < arr.size())
     {
         if (arr[i] > arr[i+1])
@@ -243,6 +257,11 @@ void PmergeMe::sortDeque(std::deque<int>& arr) {
     }
     p = this->sortDequePair(p);
     arr = this->insertDeque(p);
+    if (hasEnd)
+    {
+        std::deque<int>::iterator pos = std::lower_bound(arr.begin(), arr.end(), end);
+        arr.push_back(pos, end);
+    }
 }
 
 // ---- Execution and Display ----
