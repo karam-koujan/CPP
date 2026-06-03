@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/03 09:49:54 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/03 09:52:52 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
     return *this;
 }
 void PmergeMe::parseInput(int argc, char** argv) {
-  
+  std::cout << "pass" ;
 }
 
 std::vector<size_t> PmergeMe::generateJacobsthalVector(size_t n) {
@@ -294,9 +294,10 @@ void PmergeMe::sortDeque(std::deque<int>& arr) {
 // ---- Execution and Display ----
 
 void PmergeMe::printVector(const std::string& prefix, const std::vector<int>& vec) const {
+  std::cout << "pass" ;
 
 }
 
 void PmergeMe::execute() {
-
+  std::cout << "pass" ;
 }
