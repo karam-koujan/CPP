@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:42 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/03 10:13:53 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/03 10:40:49 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
     std::vector<int> arr;
     arr.push_back(15);
     arr.push_back(0);
-    arr.push_back(100);
+    arr.push_back(1000);
     arr.push_back(10);
     arr.push_back(10);
     arr.push_back(1);

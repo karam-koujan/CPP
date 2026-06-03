@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/03 10:23:21 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/03 10:39:04 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,11 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
 std::vector<size_t> PmergeMe::generateJacobsthalVector(size_t n) {
     std::vector<size_t> jacob;
     jacob.push_back(0);
-    if (n == 1)
-        return jacob;
     jacob.push_back(1);
-    if (n == 2)
-        return jacob;    
-    size_t i = 1;
-    while (i < n - 1)
+
+    while (jacob.back() < n || jacob.size() < 5)
     {
-        jacob.push_back(jacob[i] + (2 * jacob[i - 1]));
-        i++;
+        jacob.push_back(jacob.back() + (2 * jacob[jacob.size() - 2]));
     }
     return jacob;
 }
@@ -49,23 +44,18 @@ std::vector<size_t> PmergeMe::generateJacobsthalVector(size_t n) {
 std::deque<size_t> PmergeMe::generateJacobsthalDeque(size_t n) {
     std::deque<size_t> jacob;
     jacob.push_back(0);
-    if (n == 1)
-        return jacob;
     jacob.push_back(1);
-    if (n == 2)
-        return jacob;    
-    size_t i = 1;
-    while (i < n - 1)
+
+    while (jacob.back() < n || jacob.size() < 5)
     {
-        jacob.push_back(jacob[i] + (2 * jacob[i - 1]));
-        i++;
+        jacob.push_back(jacob.back() + (2 * jacob[jacob.size() - 2]));
     }
     return jacob;
 }
-// ---- Vector Implementation ----
 
 std::vector<int> PmergeMe::insertVector(std::vector<std::pair<int,int> > &pair) {
-    std::vector<int> mainChain; 
+    std::vector<int> mainChain;
+    if (pair.empty()) return mainChain;
     std::vector<int> pending;
     size_t i = 0;
     while (i < pair.size())
@@ -102,7 +92,9 @@ std::vector<int> PmergeMe::insertVector(std::vector<std::pair<int,int> > &pair) 
             mainChain.insert(pos, pending[tmp - 1]);
            tmp--;
         }
-        edge = limit; 
+        edge = limit;
+        if (edge >= pending.size())
+            break;
         jacob_idx++;
        if (jacob_idx < jacob.size())
             limit = jacob[jacob_idx];
@@ -183,6 +175,7 @@ void PmergeMe::sortVector(std::vector<int>& arr) {
 
 std::deque<int> PmergeMe::insertDeque(std::deque<std::pair<int,int> > &pair) {
    std::deque<int> mainChain;
+    if (pair.empty()) return mainChain;
    std::deque<int> pending;
    size_t i = 1;
    mainChain.push_back(pair[0].second);
@@ -218,6 +211,8 @@ std::deque<int> PmergeMe::insertDeque(std::deque<std::pair<int,int> > &pair) {
             tmp--;
         }
         edge = limit;
+        if (edge >= pending.size())
+            break;
         jacob_idx++;
         if (jacob_idx < jacob.size())
             limit = jacob[jacob_idx];
