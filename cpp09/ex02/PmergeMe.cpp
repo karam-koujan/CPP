@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/03 11:07:01 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/04 10:27:24 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,28 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
     }
     return *this;
 }
-// void PmergeMe::parseInput(int argc, char** argv) {
-//   std::cout << "pass" ;
-// }
+void PmergeMe::parseInput(char* str) {
+    std::string sequence = str;
+    if (sequence.find_first_not_of("0123456789 \t\n\r") != std::string::npos || sequence.size() == 0)
+        throw std::runtime_error("Error : please enter a positive number"); 
+    int number;
+    std::istringstream ss(sequence);
+
+    while (ss >> number)
+    {
+        _vec.push_back(number);
+        _deq.push_back(number);
+    }
+    if (ss.fail() && !ss.eof())
+    {
+        throw std::runtime_error("Error : detect overflow"); 
+    }
+    for(size_t i = 0; i < _vec.size(); ++i)
+    {
+        std::cout << _vec[i] << " ";
+    }
+    std::cout << std::endl;
+}
 
 std::vector<size_t> PmergeMe::generateJacobsthalVector(size_t n) {
     std::vector<size_t> jacob;

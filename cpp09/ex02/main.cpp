@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:42 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/03 10:46:42 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/04 10:06:50 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,20 @@ int main(int argc, char **argv) {
         std::cerr << "Error: No input provided." << std::endl;
         return 1;
     }
-    (void)argv;
     PmergeMe merge;
-    std::deque<int> arr;
-    arr.push_back(15);
-    arr.push_back(0);
-    arr.push_back(1000);
-    arr.push_back(10);
-    arr.push_back(10);
-    arr.push_back(1);
-
-    
-    merge.sortDeque(arr);
-    for(size_t i = 0; i < arr.size(); ++i)
+    try
     {
-        std::cout << arr[i] << " ";
+        merge.parseInput(argv[1]);        
     }
-    std::cout << std::endl;
+    catch(std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;        
+    }
+    // merge.sortDeque(arr);
+    // for(size_t i = 0; i < arr.size(); ++i)
+    // {
+    //     std::cout << arr[i] << " ";
+    // }
+    // std::cout << std::endl;
     return 0;
 }

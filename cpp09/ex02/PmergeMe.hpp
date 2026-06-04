@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:04:58 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/03 10:23:30 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/04 10:03:53 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
     PmergeMe(const PmergeMe& other);
     PmergeMe& operator=(const PmergeMe& other);
     
-    // void parseInput(int argc, char** argv);
+    void parseInput(char* str);
     void sortVector(std::vector<int>& arr);
     std::vector<std::pair<int,int> > sortVectorPair(std::vector<std::pair<int,int> > &pair);
     std::vector<int> insertVector(std::vector<std::pair<int,int> > &pair);
