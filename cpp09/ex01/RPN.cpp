@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 06:32:15 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/05/28 06:40:53 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/05/30 11:30:14 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void   RPN::do_operation(char op)
             return ;
     }
 }
+
 int    RPN::calculation(std::string &sequence)
 {
     size_t i = -1;

@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/04 10:27:24 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/04 10:53:44 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,24 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
     }
     return *this;
 }
-void PmergeMe::parseInput(char* str) {
+void PmergeMe::parseInputDeque(char* str) {
+    std::string sequence = str;
+    if (sequence.find_first_not_of("0123456789 \t\n\r") != std::string::npos || sequence.size() == 0)
+        throw std::runtime_error("Error : please enter a positive number"); 
+    int number;
+    std::istringstream ss(sequence);
+
+    while (ss >> number)
+    {
+        _deq.push_back(number);
+    }
+    if (ss.fail() && !ss.eof())
+    {
+        throw std::runtime_error("Error : detect overflow"); 
+    }
+}
+
+void PmergeMe::parseInputVector(char* str) {
     std::string sequence = str;
     if (sequence.find_first_not_of("0123456789 \t\n\r") != std::string::npos || sequence.size() == 0)
         throw std::runtime_error("Error : please enter a positive number"); 
@@ -35,17 +52,11 @@ void PmergeMe::parseInput(char* str) {
     while (ss >> number)
     {
         _vec.push_back(number);
-        _deq.push_back(number);
     }
     if (ss.fail() && !ss.eof())
     {
         throw std::runtime_error("Error : detect overflow"); 
     }
-    for(size_t i = 0; i < _vec.size(); ++i)
-    {
-        std::cout << _vec[i] << " ";
-    }
-    std::cout << std::endl;
 }
 
 std::vector<size_t> PmergeMe::generateJacobsthalVector(size_t n) {
@@ -311,11 +322,18 @@ void PmergeMe::sortDeque(std::deque<int>& arr) {
 
 // ---- Execution and Display ----
 
-// void PmergeMe::printVector(const std::string& prefix, const std::vector<int>& vec) const {
-//   std::cout << "pass" ;
 
-// }
-
-// void PmergeMe::execute() {
-//   std::cout << "pass" ;
-// }
+void PmergeMe::execute(char *str) {
+    timeval start;
+    timeval end;
+    gettimeofday(&start, NULL);
+    merge.parseInputDeque(argv[1]);
+    merge.sortDeque(_deq);
+    gettimeofday(&end, NULL);
+    long udeque_time = end.tv_usec - start.tv_usec;
+    
+    gettimeofday(&start, NULL);
+    merge.parseInputVector(argv[1]);
+    merge.sortVector(_vec);
+    gettimeofday(&end, NULL);
+}

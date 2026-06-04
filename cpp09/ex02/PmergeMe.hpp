@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:04:58 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/04 10:03:53 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/04 10:49:32 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <string>
 #include <sstream>
 #include <cstdlib>
-#include <ctime>
+#include <sys/time.h>
 #include <algorithm>
 #include <stdexcept>
 
@@ -35,7 +35,8 @@ public:
     PmergeMe(const PmergeMe& other);
     PmergeMe& operator=(const PmergeMe& other);
     
-    void parseInput(char* str);
+    void PmergeMe::parseInputVector(char* str);
+    void PmergeMe::parseInputDeque(char* str); 
     void sortVector(std::vector<int>& arr);
     std::vector<std::pair<int,int> > sortVectorPair(std::vector<std::pair<int,int> > &pair);
     std::vector<int> insertVector(std::vector<std::pair<int,int> > &pair);
