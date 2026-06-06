@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/06 09:56:03 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/06 11:28:22 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
     }
     return *this;
 }
-void PmergeMe::parseInputDeque(char* str) {
+void PmergeMe::parseInputDeque(std::string &str) {
     std::string sequence = str;
     if (sequence.find_first_not_of("0123456789 \t\n\r") != std::string::npos || sequence.size() == 0)
         throw std::runtime_error("Error : please enter a positive number"); 
@@ -42,7 +42,7 @@ void PmergeMe::parseInputDeque(char* str) {
     }
 }
 
-void PmergeMe::parseInputVector(char* str) {
+void PmergeMe::parseInputVector(std::string &str) {
     std::string sequence = str;
     if (sequence.find_first_not_of("0123456789 \t\n\r") != std::string::npos || sequence.size() == 0)
         throw std::runtime_error("Error : please enter a positive number"); 
@@ -322,38 +322,50 @@ void PmergeMe::sortDeque(std::deque<int>& arr) {
 
 // ---- Execution and Display ----
 
-
-void PmergeMe::execute(char *str) {
-    timeval start;
-    timeval end;
+void PmergeMe::print_message(std::string &str , double deque_time, double vector_time)
+{
     size_t i = 0;
-
-    std::cout << std::endl;
-    gettimeofday(&start, NULL);
-
-    this->parseInputDeque(str);
-    std::cout << "Before :  ";
-    while (i < _deq.size())
+    std::cout << "Before: " << "  ";
+    while (i < str.size())
     {
-        std::cout << _deq[i]  << " ";
+        std::cout << str[i] << " ";
         i++;
     }
+    std::cout << std::endl;
+    i = 0;
+    std::cout << "After: " << "  ";
+    while (i < _vec.size())
+    {
+        std::cout << _vec[i] << " ";
+        i++;
+    }
+    std::cout << std::endl; 
+    std::cout << "Time to process a range of 5 elements with std::deque :" << deque_time << " us" << std::endl; 
+    std::cout << "Time to process a range of 5 elements with std::vector :" << vector_time << " us" << std::endl;  
+}
+
+void PmergeMe::execute(int argc, char **argv) {
+    timeval start;
+    timeval end;
+    timeval start_vec;
+    timeval end_vec;
+    int i = 1;
+    std::string str;
+    while (i < argc)
+    {
+        str+= argv[i];
+        i++;
+    }
+    gettimeofday(&start, NULL);
+    this->parseInputDeque(str);
     this->sortDeque(_deq);
     gettimeofday(&end, NULL);
     double udeque_time = end.tv_usec - start.tv_usec;
-    gettimeofday(&start, NULL);
+    gettimeofday(&start_vec, NULL);
     this->parseInputVector(str);
     this->sortVector(_vec);
-    gettimeofday(&end, NULL);
-    double vector_time = end.tv_usec - start.tv_usec;
-    std::cout << "After :  ";
-    i = 0;
-    while (i < _vec.size())
-    {
-        std::cout << _vec[i]  << " ";
-        i++;
-    }
-    std::cout << std::endl;
-    std::cout << "Time to process a range of 5 elements with std:deque : " << udeque_time <<  "us" << std::endl;
-    std::cout << "Time to process a range of 5 elements with std:vector : " << vector_time << "us" << std::endl;
+    gettimeofday(&end_vec, NULL);
+    double vector_time = end_vec.tv_usec - start_vec.tv_usec;
+
+    this->print_message(str, udeque_time, vector_time);
 }
