@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/06 11:28:22 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/06 11:34:33 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -328,7 +328,7 @@ void PmergeMe::print_message(std::string &str , double deque_time, double vector
     std::cout << "Before: " << "  ";
     while (i < str.size())
     {
-        std::cout << str[i] << " ";
+        std::cout << str[i];
         i++;
     }
     std::cout << std::endl;
@@ -354,6 +354,7 @@ void PmergeMe::execute(int argc, char **argv) {
     while (i < argc)
     {
         str+= argv[i];
+        str+= " ";
         i++;
     }
     gettimeofday(&start, NULL);
