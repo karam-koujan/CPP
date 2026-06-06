@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/04 10:53:44 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/06 09:56:03 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -326,14 +326,34 @@ void PmergeMe::sortDeque(std::deque<int>& arr) {
 void PmergeMe::execute(char *str) {
     timeval start;
     timeval end;
+    size_t i = 0;
+
+    std::cout << std::endl;
     gettimeofday(&start, NULL);
-    merge.parseInputDeque(argv[1]);
-    merge.sortDeque(_deq);
+
+    this->parseInputDeque(str);
+    std::cout << "Before :  ";
+    while (i < _deq.size())
+    {
+        std::cout << _deq[i]  << " ";
+        i++;
+    }
+    this->sortDeque(_deq);
     gettimeofday(&end, NULL);
-    long udeque_time = end.tv_usec - start.tv_usec;
-    
+    double udeque_time = end.tv_usec - start.tv_usec;
     gettimeofday(&start, NULL);
-    merge.parseInputVector(argv[1]);
-    merge.sortVector(_vec);
+    this->parseInputVector(str);
+    this->sortVector(_vec);
     gettimeofday(&end, NULL);
+    double vector_time = end.tv_usec - start.tv_usec;
+    std::cout << "After :  ";
+    i = 0;
+    while (i < _vec.size())
+    {
+        std::cout << _vec[i]  << " ";
+        i++;
+    }
+    std::cout << std::endl;
+    std::cout << "Time to process a range of 5 elements with std:deque : " << udeque_time <<  "us" << std::endl;
+    std::cout << "Time to process a range of 5 elements with std:vector : " << vector_time << "us" << std::endl;
 }

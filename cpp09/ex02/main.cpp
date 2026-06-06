@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:42 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/04 10:06:50 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/06 09:48:31 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
     PmergeMe merge;
     try
     {
-        merge.parseInput(argv[1]);        
+        merge.execute(argv[1]);        
     }
     catch(std::exception &e)
     {
