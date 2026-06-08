@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 10:05:20 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/06 11:34:33 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/08 09:36:28 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,10 @@ std::vector<int> PmergeMe::insertVector(std::vector<std::pair<int,int> > &pair) 
         mainChain.push_back(pair[i].first);
         i++;
     }
-    std::vector<size_t> jacob = this->generateJacobsthalVector(pending.size());
-    if (jacob.size() <= 2)
+    if (pending.empty())
         return mainChain;
+
+    std::vector<size_t> jacob = this->generateJacobsthalVector(pending.size() + 1);
     size_t jacob_idx = 2;
     size_t limit = jacob[jacob_idx];
     if (limit >= pending.size())
@@ -207,7 +208,6 @@ void PmergeMe::sortVector(std::vector<int>& arr) {
 
 std::deque<int> PmergeMe::insertDeque(std::deque<std::pair<int,int> > &pair) {
    std::deque<int> mainChain;
-    if (pair.empty()) return mainChain;
    std::deque<int> pending;
    size_t i = 1;
    mainChain.push_back(pair[0].second);
@@ -218,9 +218,10 @@ std::deque<int> PmergeMe::insertDeque(std::deque<std::pair<int,int> > &pair) {
         pending.push_back(pair[i].second);
         i++;
    }
-   std::deque<size_t> jacob = this->generateJacobsthalDeque(pending.size());
-    if (jacob.size() <= 2)
+    if (pending.empty())
         return mainChain;
+
+   std::deque<size_t> jacob = this->generateJacobsthalDeque(pending.size() + 1);
    size_t jacob_idx = 2;
    size_t limit = jacob[jacob_idx];
    if (limit >= pending.size())
