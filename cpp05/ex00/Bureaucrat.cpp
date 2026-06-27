@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 09:36:38 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/02/23 21:14:29 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/06/27 10:21:50 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ const std::string &Bureaucrat::getName() const
     return this->name;
 }
 
-int Bureaucrat::getGrade() const
+const int Bureaucrat::getGrade() const
 {
     return this->grad;
 }
