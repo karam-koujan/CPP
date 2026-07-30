@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 08:23:34 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/06/27 10:21:36 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/07/30 09:37:33 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Bureaucrat
         Bureaucrat &operator=(const Bureaucrat &other);
         ~Bureaucrat();
         const std::string &getName() const;
-        const int getGrade() const;
+        int getGrade() const;
         void    incrementGrad();
         void    decrementGrad();
         class GradeTooHighException : public std::exception
