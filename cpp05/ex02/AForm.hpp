@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:09:15 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/25 11:07:50 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/07/31 10:14:30 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,16 @@ class AForm
         class GradeTooLowException : public std::exception
         {
             public:
-                GradeTooLowException();
                 const char *what() const throw();
         };
         class GradeTooHighException : public std::exception
         {
             public:
-                GradeTooHighException();
                 const char *what() const throw();
         };
         class GradeTooLowExecException : public std::exception
         {
             public:
-                GradeTooLowExecException();
                 const char *what() const throw();
         };
         class FormNotSigned : public std::exception
