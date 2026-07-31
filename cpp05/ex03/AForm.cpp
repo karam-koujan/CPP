@@ -75,15 +75,6 @@ int AForm::getGradToExec() const
     return this->gradToExec;
 }
 
-AForm::GradeTooLowException::GradeTooLowException()
-{
-    std::cout << "AForm GradeTooLowException" << std::endl;
-}
-
-AForm::GradeTooHighException::GradeTooHighException()
-{
-    std::cout << "Form GradeTooHighException" << std::endl;
-}
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
@@ -95,19 +86,9 @@ const char *AForm::GradeTooLowException::what() const throw()
     return "The grade is too low" ;
 }
 
-AForm::GradeTooLowExecException::GradeTooLowExecException()
-{
-    std::cout << "AForm GradeTooLowExecException" << std::endl;
-}
-
 const char *AForm::GradeTooLowExecException::what() const throw()
 {
     return "The grade is too low to execute an action" ;
-}
-
-AForm::FormNotSigned::FormNotSigned()
-{
-    std::cout << "FormNotSigned" << std::endl;
 }
 
 const char *AForm::FormNotSigned::what() const throw()

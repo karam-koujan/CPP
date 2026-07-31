@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 09:36:38 by kkoujan           #+#    #+#             */
-/*   Updated: 2026/02/25 17:19:27 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/07/31 10:21:33 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,53 +74,6 @@ const std::string &Bureaucrat::getName() const
 int Bureaucrat::getGrade() const
 {
     return this->grad;
-}
-
-Bureaucrat::GradeTooHighException::GradeTooHighException()
-{
-    std::cout << "GradeTooHighException" << std::endl;
-}
-
-Bureaucrat::GradeTooHighException::~GradeTooHighException() throw()
-{
-    std::cout << "GradeTooHighException is destroyed" << std::endl; 
-}
-
-Bureaucrat::GradeTooHighException::GradeTooHighException(const Bureaucrat::GradeTooHighException &other)
-{
-    (void)other;
-    std::cout << "GradeTooHighException copy constructor" << std::endl; 
-}
-
-Bureaucrat::GradeTooHighException& Bureaucrat::GradeTooHighException::operator=(const Bureaucrat::GradeTooHighException &other)
-{
-        std::cout << "GradeTooHighException copy assignment" << std::endl;
-        (void)other;
-        return *this;
-}
-
-
-Bureaucrat::GradeTooLowException::GradeTooLowException()
-{
-    std::cout << "GradeTooLowException" << std::endl;
-}
-
-Bureaucrat::GradeTooLowException::~GradeTooLowException() throw()
-{
-    std::cout << "GradeTooLowException is destroyed" << std::endl; 
-}
-
-Bureaucrat::GradeTooLowException::GradeTooLowException(const Bureaucrat::GradeTooLowException &other)
-{
-    (void)other;
-    std::cout << "GradeTooLowException copy constructor" << std::endl; 
-}
-
-Bureaucrat::GradeTooLowException& Bureaucrat::GradeTooLowException::operator=(const Bureaucrat::GradeTooLowException &other)
-{
-        (void)other;
-        std::cout << "GradeTooLowException copy assignment" << std::endl;
-        return *this;
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
