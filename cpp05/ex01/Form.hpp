@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:09:15 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/24 14:33:45 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/07/31 10:10:46 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,11 @@ class Form
         class GradeTooLowException : public std::exception
         {
             public:
-                GradeTooLowException();
                 const char *what() const throw();
         };
         class GradeTooHighException : public std::exception
         {
             public:
-                GradeTooHighException();
                 const char *what() const throw();
         };
 };

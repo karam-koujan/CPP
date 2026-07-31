@@ -6,7 +6,7 @@
 /*   By: kkoujan <kkoujan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 11:46:11 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/12/24 14:35:50 by kkoujan          ###   ########.fr       */
+/*   Updated: 2026/07/31 10:11:53 by kkoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,19 +74,9 @@ int Form::getGradToExec() const
     return this->gradToExec;
 }
 
-Form::GradeTooLowException::GradeTooLowException()
-{
-    std::cout << "Form GradeTooLowException" << std::endl;
-}
-
 const char *Form::GradeTooLowException::what() const throw()
 {
     return "The form grade is too low" ;
-}
-
-Form::GradeTooHighException::GradeTooHighException()
-{
-    std::cout << "Form GradeTooHighException" << std::endl;
 }
 
 const char *Form::GradeTooHighException::what() const throw()
